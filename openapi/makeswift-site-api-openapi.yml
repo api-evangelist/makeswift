@@ -1,0 +1,675 @@
+openapi: 3.1.0
+info:
+  title: REST locale site API
+  version: 1.0.0
+servers:
+- url: https://api.makeswift.com
+  description: Production server
+tags:
+- name: site
+paths:
+  /v2/sites:
+    post:
+      operationId: SiteController_createV2_v2
+      summary: Create Site
+      description: Creates a new site in a workspace.
+      tags:
+      - site
+      parameters:
+      - name: x-api-key
+        in: header
+        description: 'API key authentication. Accepts either:
+
+          - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+          - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSiteV2ResponseBodyDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSiteV2RequestBodyDto'
+    get:
+      operationId: SiteController_listV2_v2
+      summary: List Sites
+      description: Returns a list of sites in a workspace.
+      tags:
+      - site
+      parameters:
+      - name: workspaceId
+        in: query
+        description: The workspace ID to list sites from.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: limit
+        in: query
+        description: The maximum number of sites to return.
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 20
+      - name: startingAfter
+        in: query
+        description: The pagination cursor. This is used to indicate what ID to list from.
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: x-api-key
+        in: header
+        description: 'API key authentication. Accepts either:
+
+          - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+          - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSiteV2ResponseBodyDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+  /v2/sites/{siteId}:
+    get:
+      operationId: SiteController_getOneV2_v2
+      summary: Get Site
+      description: Returns a site by its ID.
+      tags:
+      - site
+      parameters:
+      - name: siteId
+        in: path
+        description: The site ID for the site you are requesting.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-api-key
+        in: header
+        description: 'API key authentication. Accepts either:
+
+          - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+          - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadSiteV2ResponseBodyDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+    patch:
+      operationId: SiteController_updateOneV2_v2
+      summary: Update Site
+      description: Updates an existing site.
+      tags:
+      - site
+      parameters:
+      - name: siteId
+        in: path
+        description: The site ID for the site you are updating.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-api-key
+        in: header
+        description: 'API key authentication. Accepts either:
+
+          - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+          - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSiteV2ResponseBodyDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSiteV2RequestBodyDto'
+    delete:
+      operationId: SiteController_deleteV2_v2
+      summary: Delete Site
+      description: Deletes a site.
+      tags:
+      - site
+      parameters:
+      - name: siteId
+        in: path
+        description: The site ID for the site you are deleting.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-api-key
+        in: header
+        description: 'API key authentication. Accepts either:
+
+          - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+          - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Site successfully deleted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+  /v2/sites/{siteId}/duplicate:
+    post:
+      operationId: SiteController_duplicateV2_v2
+      summary: Duplicate Site
+      description: Duplicates an existing site with all its content and configuration.
+      tags:
+      - site
+      parameters:
+      - name: siteId
+        in: path
+        description: The site ID for the site you are duplicating.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-api-key
+        in: header
+        description: 'API key authentication. Accepts either:
+
+          - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+          - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Returns the newly created duplicated site.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DuplicateSiteV2ResponseBodyDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DuplicateSiteV2RequestBodyDto'
+components:
+  schemas:
+    BadRequestResponseDtoCode:
+      type: string
+      enum:
+      - bad_request
+      title: BadRequestResponseDtoCode
+    ReadSiteV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - site
+      description: The type of the object
+      title: ReadSiteV2ResponseBodyDtoObject
+    ForbiddenResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: ForbiddenResponseDtoObject
+    CreateSiteV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - site
+      description: The type of the object
+      title: CreateSiteV2ResponseBodyDtoObject
+    ForbiddenResponseDtoCode:
+      type: string
+      enum:
+      - forbidden
+      title: ForbiddenResponseDtoCode
+    ListSiteV2ResponseBodyDtoDataItems:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoDataItemsObject'
+          description: The type of the object
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        publicApiKey:
+          type: string
+          format: uuid
+          description: The publishable API key that a host can use to get page and component data for rendering your site.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+        defaultLocalePathPrefix:
+          type:
+          - string
+          - 'null'
+        localeManagementMode:
+          $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoDataItemsLocaleManagementMode'
+          description: Controls whether locales are managed internally via the builder or externally via API.
+      required:
+      - object
+      - id
+      - name
+      - hostOrigin
+      - publicApiKey
+      - defaultLocale
+      - localeManagementMode
+      title: ListSiteV2ResponseBodyDtoDataItems
+    BadRequestResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/BadRequestResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/BadRequestResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: BadRequestResponseDto
+    ListSiteV2ResponseBodyDtoDataItemsLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: ListSiteV2ResponseBodyDtoDataItemsLocaleManagementMode
+    ReadSiteV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ReadSiteV2ResponseBodyDtoObject'
+          description: The type of the object
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        publicApiKey:
+          type: string
+          format: uuid
+          description: The publishable API key that a host can use to get page and component data for rendering your site.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+        defaultLocalePathPrefix:
+          type:
+          - string
+          - 'null'
+        localeManagementMode:
+          $ref: '#/components/schemas/ReadSiteV2ResponseBodyDtoLocaleManagementMode'
+          description: Controls whether locales are managed internally via the builder or externally via API.
+      required:
+      - object
+      - id
+      - name
+      - hostOrigin
+      - publicApiKey
+      - defaultLocale
+      - localeManagementMode
+      title: ReadSiteV2ResponseBodyDto
+    DuplicateSiteV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - site
+      description: The type of the object
+      title: DuplicateSiteV2ResponseBodyDtoObject
+    CreateSiteV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/CreateSiteV2ResponseBodyDtoObject'
+          description: The type of the object
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        publicApiKey:
+          type: string
+          format: uuid
+          description: The publishable API key that a host can use to get page and component data for rendering your site.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+        defaultLocalePathPrefix:
+          type:
+          - string
+          - 'null'
+        localeManagementMode:
+          $ref: '#/components/schemas/CreateSiteV2ResponseBodyDtoLocaleManagementMode'
+          description: Controls whether locales are managed internally via the builder or externally via API.
+      required:
+      - object
+      - id
+      - name
+      - hostOrigin
+      - publicApiKey
+      - defaultLocale
+      - localeManagementMode
+      title: CreateSiteV2ResponseBodyDto
+    CreateSiteV2RequestBodyDto:
+      type: object
+      properties:
+        workspaceId:
+          type: string
+          format: uuid
+          description: The ID of the workspace that contains this site.
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type: string
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        defaultLocale:
+          type: string
+          default: en-US
+          description: The primary locale of this site.
+      required:
+      - workspaceId
+      - name
+      title: CreateSiteV2RequestBodyDto
+    UpdateSiteV2RequestBodyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type: string
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+      title: UpdateSiteV2RequestBodyDto
+    CreateSiteV2ResponseBodyDtoLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: CreateSiteV2ResponseBodyDtoLocaleManagementMode
+    DuplicateSiteV2RequestBodyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name for the duplicated site.
+      required:
+      - name
+      title: DuplicateSiteV2RequestBodyDto
+    ListSiteV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoObject'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoDataItems'
+        hasMore:
+          type: boolean
+          description: The flag that indicates whether there are more sites available.
+      required:
+      - object
+      - data
+      - hasMore
+      title: ListSiteV2ResponseBodyDto
+    DuplicateSiteV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/DuplicateSiteV2ResponseBodyDtoObject'
+          description: The type of the object
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        publicApiKey:
+          type: string
+          format: uuid
+          description: The publishable API key that a host can use to get page and component data for rendering your site.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+        defaultLocalePathPrefix:
+          type:
+          - string
+          - 'null'
+        localeManagementMode:
+          $ref: '#/components/schemas/DuplicateSiteV2ResponseBodyDtoLocaleManagementMode'
+          description: Controls whether locales are managed internally via the builder or externally via API.
+      required:
+      - object
+      - id
+      - name
+      - hostOrigin
+      - publicApiKey
+      - defaultLocale
+      - localeManagementMode
+      description: The newly created duplicated site with all content and configuration copied from the original
+      title: DuplicateSiteV2ResponseBodyDto
+    ForbiddenResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ForbiddenResponseDto
+    UpdateSiteV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - site
+      description: The type of the object
+      title: UpdateSiteV2ResponseBodyDtoObject
+    ListSiteV2ResponseBodyDtoDataItemsObject:
+      type: string
+      enum:
+      - site
+      description: The type of the object
+      title: ListSiteV2ResponseBodyDtoDataItemsObject
+    BadRequestResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: BadRequestResponseDtoObject
+    ListSiteV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - list
+      title: ListSiteV2ResponseBodyDtoObject
+    UpdateSiteV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/UpdateSiteV2ResponseBodyDtoObject'
+          description: The type of the object
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        publicApiKey:
+          type: string
+          format: uuid
+          description: The publishable API key that a host can use to get page and component data for rendering your site.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+        defaultLocalePathPrefix:
+          type:
+          - string
+          - 'null'
+        localeManagementMode:
+          $ref: '#/components/schemas/UpdateSiteV2ResponseBodyDtoLocaleManagementMode'
+          description: Controls whether locales are managed internally via the builder or externally via API.
+      required:
+      - object
+      - id
+      - name
+      - hostOrigin
+      - publicApiKey
+      - defaultLocale
+      - localeManagementMode
+      title: UpdateSiteV2ResponseBodyDto
+    DuplicateSiteV2ResponseBodyDtoLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: DuplicateSiteV2ResponseBodyDtoLocaleManagementMode
+    UpdateSiteV2ResponseBodyDtoLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: UpdateSiteV2ResponseBodyDtoLocaleManagementMode
+    ReadSiteV2ResponseBodyDtoLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: ReadSiteV2ResponseBodyDtoLocaleManagementMode
+  securitySchemes:
+    Authentication:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'API key authentication. Accepts either:
+
+        - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+        - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
