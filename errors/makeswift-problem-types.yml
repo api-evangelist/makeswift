@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/makeswift-openapi.json + docs.makeswift.com/developer/api-reference
+format: custom
+envelope:
+  media_type: application/json
+  shape: '{ object: "error", code: string, message: string }'
+  note: Not RFC 9457 problem+json; a Makeswift-specific error envelope with a machine
+    code and a human message.
+problem_types:
+- code: bad_request
+  status: 400
+  title: Bad Request
+  remediation: A required field is missing or invalid (e.g. "Missing siteId field").
+    Correct the request body/parameters and retry.
+- code: forbidden
+  status: 403
+  title: Forbidden
+  remediation: The API key lacks access to the requested resource ("Access forbidden").
+    Verify the App/Site API key and its workspace scope.
+- code: not_found
+  status: 404
+  title: Not Found
+  remediation: The referenced site, locale, or page does not exist. Verify the id
+    or pathname.
+- code: conflict
+  status: 409
+  title: Conflict
+  remediation: The resource conflicts with an existing one (e.g. "A page or route
+    with this pathname already exists"). Use a different pathname/identifier.

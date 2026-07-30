@@ -1,0 +1,10 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.makeswift.com/developer/changelog
+scheme: dated
+url: https://docs.makeswift.com/developer/changelog
+note: Makeswift publishes a dated developer changelog. Recent entries are dated (e.g.
+  2026-06-01 and 2026-07-16 were observed) but the per-entry detail was not machine-scrapeable
+  during this pass; see the changelog URL for full highlights. No structured entries
+  are recorded here to avoid fabrication.
+entries: []

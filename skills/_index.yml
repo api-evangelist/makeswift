@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/makeswift-openapi.json
+api: Makeswift REST API
+base_url: https://api.makeswift.com
+skills:
+- file: makeswift-manage-sites.md
+  name: Manage Makeswift Sites
+  operations:
+  - SiteController_createV2_v2
+  - SiteController_listV2_v2
+  - SiteController_getOneV2_v2
+  - SiteController_updateOneV2_v2
+  - SiteController_duplicateV2_v2
+  - SiteController_deleteV2_v2
+- file: makeswift-manage-pages.md
+  name: Manage Makeswift Pages
+  operations:
+  - PageController_createV6_v6
+  - PageController_listV6_v6
+  - PageController_getV6_v6
+  - PageController_updateV6_v6
+  - PageController_deleteV6_v6
+- file: makeswift-configure-localization.md
+  name: Configure Makeswift Localization
+  operations:
+  - SiteLocaleController_createV2_v2
+  - SiteLocaleController_listV2_v2
+  - SiteLocaleController_getV2_v2
+  - SiteLocaleController_updateV2_v2
+  - SiteLocaleController_deleteV2_v2
+  - SiteLocaleController_restoreV2_v2

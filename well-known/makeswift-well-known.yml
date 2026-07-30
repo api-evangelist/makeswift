@@ -1,0 +1,34 @@
+generated: '2026-07-20'
+method: probed
+source: live HTTP probes of Makeswift hosts
+note: No .well-known documents are published on any Makeswift host (all 404). This
+  is a valid, expected result recorded for completeness.
+probes:
+- host: api.makeswift.com
+  path: /.well-known/security.txt
+  status: 404
+  file: null
+- host: makeswift.com
+  path: /.well-known/security.txt
+  status: 404
+  file: null
+- host: docs.makeswift.com
+  path: /.well-known/security.txt
+  status: 404
+  file: null
+- host: api.makeswift.com
+  path: /.well-known/openid-configuration
+  status: 404
+  file: null
+- host: api.makeswift.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+  file: null
+- host: api.makeswift.com
+  path: /.well-known/api-catalog
+  status: 404
+  file: null
+- host: makeswift.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+  file: null

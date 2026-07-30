@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/makeswift-openapi.json + docs.makeswift.com/developer/api-reference/authentication
+docs: https://docs.makeswift.com/developer/api-reference/authentication
+notes: App API keys (prefix sk_) are created per app under Workspace -> Apps; Site
+  API keys are UUIDs. A Bearer token is also accepted, but only one auth method may
+  be sent per request (requests with both are rejected).
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: Authentication
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: |-
+    API key authentication. Accepts either:
+    - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+    - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)
+  sources:
+  - openapi/makeswift-openapi.json

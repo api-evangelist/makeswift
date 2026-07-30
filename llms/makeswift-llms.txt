@@ -1,0 +1,24 @@
+# Makeswift
+
+> Documentation for Makeswift — the composable visual page builder for marketing teams and developers
+
+## Instructions for AI Agents
+
+- For clean Markdown of any page, append `.md` to the page URL
+- For section-specific indexes, append `/llms.txt` to any section URL
+- For AI client integration (Claude Code, Cursor, etc.), connect to the MCP server at https://docs.makeswift.com/_mcp/server
+
+## Products
+
+- [Product](https://docs.makeswift.com/product/llms.txt)
+  - [Introduction](https://docs.makeswift.com/product/docs/getting-started/introduction.md)
+  - [Creating your site](https://docs.makeswift.com/product/docs/getting-started/quickstart/creating-your-site.md)
+  - [Component basics](https://docs.makeswift.com/product/docs/getting-started/quickstart/component-basics.md)
+  - [Colors and text styles](https://docs.makeswift.com/product/docs/getting-started/quickstart/colors-and-text-styles.md)
+  - [Customizing the navbar](https://docs.makeswift.com/product/docs/getting-started/quickstart/customizing-the-navbar.md)
+- [Developer](https://docs.makeswift.com/developer/llms.txt)
+  - [Quickstart](https://docs.makeswift.com/developer/docs/get-started/quickstart.md)
+  - [App Router](https://docs.makeswift.com/developer/docs/get-started/installation/app-router.md)
+  - [Pages Router](https://docs.makeswift.com/developer/docs/get-started/installation/pages-router.md)
+  - [Concepts](https://docs.makeswift.com/developer/docs/get-started/concepts.md)
+  - [Card](https://docs.makeswift.com/developer/docs/guides/building-components/card.md)

@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/makeswift-openapi.json
+entities:
+- name: site
+  id_field: id
+  id_format: uuid
+  description: A Makeswift site (workspace-scoped website project).
+- name: locale
+  id_field: id
+  id_format: uuid
+  key: code (e.g. en-US)
+  description: A localization configuration belonging to a site.
+- name: page
+  id_field: id
+  id_format: uuid
+  key: pathname
+  description: A page within a site, with SEO metadata, sitemap settings, and
+    localizations.
+relationships:
+- from: locale
+  to: site
+  type: belongs_to
+  via: siteId
+- from: page
+  to: site
+  type: belongs_to
+  via: siteId
+- from: site
+  to: locale
+  type: has_many
+  via: siteId
+- from: site
+  to: page
+  type: has_many
+  via: siteId
+- from: page
+  to: locale
+  type: has_many
+  via: localizations
+  note: A page carries a localizations array of translated versions keyed by locale.

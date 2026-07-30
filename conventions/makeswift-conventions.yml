@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: searched
+source: docs.makeswift.com/developer/api-reference + openapi/makeswift-openapi.json
+base_url: https://api.makeswift.com
+authentication:
+  style: api-key
+  header: x-api-key
+  keys:
+  - App API key (prefix sk_)
+  - Site API key (UUID)
+  bearer_token: accepted (mutually exclusive with x-api-key per request)
+  ref: ../authentication/makeswift-authentication.yml
+  docs: https://docs.makeswift.com/developer/api-reference/authentication
+idempotency:
+  supported: false
+  note: No Idempotency-Key header documented; writes are not declared idempotent.
+pagination:
+  style: cursor
+  params:
+    limit: number, default 20, max 100
+    startingAfter: cursor (resource id to fetch results after)
+  response_fields:
+    object: list
+    data: array of resources
+    hasMore: boolean
+versioning:
+  style: uri-path
+  note: Per-resource path versions (/v2 sites & locales, /v6 pages).
+error_envelope:
+  media_type: application/json
+  shape: '{ object: "error", code, message }'
+  ref: ../errors/makeswift-problem-types.yml
+response_envelope:
+  discriminator: object
+  note: Every successful response carries an object field naming the resource type
+    (site, locale, page, list).
+rate_limit_signaling:
+  documented: false
+cross_links:
+  errors: ../errors/makeswift-problem-types.yml
+  lifecycle: ../lifecycle/makeswift-lifecycle.yml
+  authentication: ../authentication/makeswift-authentication.yml

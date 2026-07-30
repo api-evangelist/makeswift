@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: searched
+source: docs.makeswift.com + status.makeswift.com
+versioning:
+  style: uri-path
+  note: Resource families are versioned independently in the path — Sites and Locales
+    on /v2, Pages on /v6. There is no global API version header.
+  observed_versions:
+  - /v2/sites
+  - /v2/locales
+  - /v6/pages
+status_page:
+  url: https://status.makeswift.com/
+  present: true
+changelog:
+  url: https://docs.makeswift.com/developer/changelog
+  present: true
+deprecation:
+  policy_documented: false
+  sunset_header: false
+  deprecation_header: false
+  note: No formal deprecation policy or RFC 8594 Sunset/Deprecation header usage is
+    documented. Some SDK client methods (e.g. getSitemap) are labeled as "legacy-apis"
+    in the developer reference.
+sla:
+  documented: false

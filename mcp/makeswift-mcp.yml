@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: docs.makeswift.com (llms.txt + developer docs)
+servers:
+- name: Makeswift Documentation MCP Server
+  url: https://docs.makeswift.com/_mcp/server
+  transport: http
+  status: live
+  hosted: true
+  official: true
+  scope: documentation
+  description: Official hosted remote MCP server exposing the Makeswift product and
+    developer documentation to AI clients (Claude Code, Cursor, etc.). Fern-generated
+    docs MCP; it serves documentation retrieval rather than the REST management API.
+  probed_status: 200
+note: Makeswift exposes an official hosted MCP endpoint for its docs. There is no
+  separately published MCP server wrapping the REST management API (Sites/Locales/Pages);
+  that surface is available via the OpenAPI at openapi/makeswift-openapi.json.

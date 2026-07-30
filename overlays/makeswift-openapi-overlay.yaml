@@ -1,0 +1,44 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enrichment overlay for the Makeswift REST API
+  version: 1.0.0
+extends: ../openapi/makeswift-openapi.json
+x-metadata:
+  generated: '2026-07-20'
+  method: generated
+  source: derived from openapi/makeswift-openapi.json + docs.makeswift.com
+actions:
+- target: $.info
+  description: Add contact and documentation context captured during enrichment.
+  update:
+    x-api-evangelist-slug: makeswift
+    x-docs: https://docs.makeswift.com/developer/api-reference/overview
+    x-authentication: https://docs.makeswift.com/developer/api-reference/authentication
+    x-base-url: https://api.makeswift.com
+- target: $.info
+  description: Annotate the resource model surfaced by this API.
+  update:
+    x-resources:
+    - sites
+    - locales
+    - pages
+- target: $.paths['/v2/sites']['get']
+  description: Note the cursor-based pagination convention (limit + startingAfter, hasMore).
+  update:
+    x-pagination:
+      style: cursor
+      params:
+      - limit
+      - startingAfter
+      response_flag: hasMore
+- target: $.components
+  description: Note the shared error envelope shape used across 4xx responses.
+  update:
+    x-error-envelope:
+      media_type: application/json
+      shape: '{ object, code, message }'
+      codes:
+      - bad_request
+      - forbidden
+      - not_found
+      - conflict

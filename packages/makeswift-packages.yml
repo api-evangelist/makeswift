@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+source: npm registry (registry.npmjs.org) + docs.makeswift.com/developer
+packages:
+- name: '@makeswift/runtime'
+  registry: npm
+  official: true
+  kind: SDK
+  language: TypeScript
+  latest: 0.28.7
+  description: The Makeswift React runtime/SDK for registering components and rendering
+    Makeswift page and component snapshots in a Next.js app.
+  url: https://www.npmjs.com/package/@makeswift/runtime
+  repository: https://github.com/makeswift/makeswift
+- name: makeswift
+  registry: npm
+  official: true
+  kind: CLI
+  language: TypeScript
+  latest: 0.3.5
+  description: The official Makeswift CLI — scaffolds and integrates Makeswift into
+    a Next.js project (npx makeswift@latest init).
+  url: https://www.npmjs.com/package/makeswift
+  repository: https://github.com/makeswift/makeswift

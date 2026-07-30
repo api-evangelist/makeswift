@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: npm registry + docs.makeswift.com/developer/docs/get-started/quickstart
+name: makeswift
+official: true
+package: makeswift
+latest: 0.3.5
+binary: makeswift
+install:
+- method: npx
+  command: npx makeswift@latest init
+- method: npm
+  command: npm install -g makeswift
+commands:
+- name: init
+  description: Scaffold and integrate Makeswift into a new or existing Next.js project,
+    wiring up the runtime and writing the Site API key to .env.local.
+note: The Makeswift CLI is primarily a project bootstrap/integration tool for Next.js;
+  the binary ships in packages/ (see packages/makeswift-packages.yml).

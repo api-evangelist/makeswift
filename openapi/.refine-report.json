@@ -1,0 +1,18 @@
+{
+  "provider": "makeswift",
+  "sources": [
+    "makeswift-locale-api-openapi.yml",
+    "makeswift-page-api-openapi.yml",
+    "makeswift-site-api-openapi.yml"
+  ],
+  "outputs": [
+    "makeswift-locale-api-openapi.yml",
+    "makeswift-page-api-openapi.yml",
+    "makeswift-site-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

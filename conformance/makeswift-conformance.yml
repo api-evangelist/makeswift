@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/makeswift-openapi.json + docs.makeswift.com
+standards:
+- id: oauth2
+  conforms: false
+  evidence: Authentication is apiKey (x-api-key) with App or Site API keys; a Bearer
+    token is also accepted. No OAuth 2.0 authorization flows are declared.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect; /.well-known/openid-configuration returns 404.
+- id: rfc9457
+  conforms: false
+  evidence: Errors use a custom JSON envelope ({ object, code, message }) with
+    application/json, not application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: List endpoints (List Sites, List Locales, List Pages) use cursor-based
+    pagination with limit + startingAfter query params and a hasMore response flag.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header or idempotent-write guarantee is documented.
+- id: 'json:api'
+  conforms: false
+  evidence: Responses are plain JSON with an object discriminator field, not JSON:API.
+- id: openapi
+  conforms: true
+  evidence: Publishes an OpenAPI 3.1.0 specification at docs.makeswift.com/openapi.json
+    (and openapi.yaml).
