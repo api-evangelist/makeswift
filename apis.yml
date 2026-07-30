@@ -1,7 +1,14 @@
 aid: makeswift
 name: Makeswift
-description: Makeswift is a company surfaced as a portfolio company of techstars and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Makeswift is a composable visual page builder for marketing teams and
+  developers, built for Next.js. It lets marketers visually design, edit, and
+  publish modern web frontends while developers register their own React
+  components and keep full control over hosting and code. Makeswift ships an
+  official React runtime SDK (@makeswift/runtime), a CLI, and a REST API at
+  api.makeswift.com for programmatically managing sites, pages, and locales,
+  plus a hosted documentation MCP server for AI clients. Makeswift is backed by
+  Techstars and partners closely with BigCommerce for composable commerce.
 url: https://raw.githubusercontent.com/api-evangelist/makeswift/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +16,163 @@ x-backed-by:
 - techstars
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://makeswift.com/
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Visual Page Builder
+- Website Builder
+- Next.js
+- Headless CMS
+- Composable
+- Content Management
+- Web Development
+- Developer Tools
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: makeswift:makeswift-locale-api
+  name: Makeswift locale API
+  description: The locale API from Makeswift — 3 operation(s) for locale.
+  humanURL: https://docs.makeswift.com/developer/api-reference/overview
+  baseURL: https://api.makeswift.com
+  tags:
+  - locale
+  properties:
+  - type: OpenAPI
+    url: openapi/makeswift-locale-api-openapi.yml
+  - type: Authentication
+    url: authentication/makeswift-authentication.yml
+  - type: Conventions
+    url: conventions/makeswift-conventions.yml
+  - type: Idempotency
+    url: conventions/makeswift-conventions.yml
+  - type: ErrorCatalog
+    url: errors/makeswift-problem-types.yml
+  - type: Conformance
+    url: conformance/makeswift-conformance.yml
+  - type: DataModel
+    url: data-model/makeswift-data-model.yml
+  - type: Documentation
+    url: https://docs.makeswift.com/developer
+  - type: APIReference
+    url: https://docs.makeswift.com/developer/api-reference/overview
+- aid: makeswift:makeswift-page-api
+  name: Makeswift page API
+  description: The page API from Makeswift — 2 operation(s) for page.
+  humanURL: https://docs.makeswift.com/developer/api-reference/overview
+  baseURL: https://api.makeswift.com
+  tags:
+  - page
+  properties:
+  - type: OpenAPI
+    url: openapi/makeswift-page-api-openapi.yml
+  - type: Authentication
+    url: authentication/makeswift-authentication.yml
+  - type: Conventions
+    url: conventions/makeswift-conventions.yml
+  - type: Idempotency
+    url: conventions/makeswift-conventions.yml
+  - type: ErrorCatalog
+    url: errors/makeswift-problem-types.yml
+  - type: Conformance
+    url: conformance/makeswift-conformance.yml
+  - type: DataModel
+    url: data-model/makeswift-data-model.yml
+  - type: Documentation
+    url: https://docs.makeswift.com/developer
+  - type: APIReference
+    url: https://docs.makeswift.com/developer/api-reference/overview
+- aid: makeswift:makeswift-site-api
+  name: Makeswift site API
+  description: The site API from Makeswift — 3 operation(s) for site.
+  humanURL: https://docs.makeswift.com/developer/api-reference/overview
+  baseURL: https://api.makeswift.com
+  tags:
+  - site
+  properties:
+  - type: OpenAPI
+    url: openapi/makeswift-site-api-openapi.yml
+  - type: Authentication
+    url: authentication/makeswift-authentication.yml
+  - type: Conventions
+    url: conventions/makeswift-conventions.yml
+  - type: Idempotency
+    url: conventions/makeswift-conventions.yml
+  - type: ErrorCatalog
+    url: errors/makeswift-problem-types.yml
+  - type: Conformance
+    url: conformance/makeswift-conformance.yml
+  - type: DataModel
+    url: data-model/makeswift-data-model.yml
+  - type: Documentation
+    url: https://docs.makeswift.com/developer
+  - type: APIReference
+    url: https://docs.makeswift.com/developer/api-reference/overview
 common:
 - type: Website
   url: https://makeswift.com/
+- type: DeveloperPortal
+  url: https://docs.makeswift.com/developer
+- type: Documentation
+  url: https://docs.makeswift.com/
+- type: APIReference
+  url: https://docs.makeswift.com/developer/api-reference/overview
+- type: GettingStarted
+  url: https://docs.makeswift.com/developer/docs/get-started/quickstart
+- type: Blog
+  url: https://makeswift.com/blog
+- type: Pricing
+  url: https://makeswift.com/pricing
+- type: SignUp
+  url: https://app.makeswift.com/signup
+- type: Login
+  url: https://app.makeswift.com
+- type: GitHubOrganization
+  url: https://github.com/makeswift
+- type: StatusPage
+  url: https://status.makeswift.com/
+- type: ChangeLog
+  url: https://docs.makeswift.com/developer/changelog
+- type: Packages
+  url: packages/makeswift-packages.yml
+- type: SDKs
+  url: packages/makeswift-packages.yml
+- type: CLI
+  url: cli/makeswift-cli.yml
+- type: MCPServer
+  url: mcp/makeswift-mcp.yml
+- type: LLMsTxt
+  url: llms/makeswift-llms.txt
+- type: WellKnown
+  url: well-known/makeswift-well-known.yml
+- type: Lifecycle
+  url: lifecycle/makeswift-lifecycle.yml
+- type: DomainSecurity
+  url: security/makeswift-domain-security.yml
+- type: Authentication
+  url: authentication/makeswift-authentication.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
