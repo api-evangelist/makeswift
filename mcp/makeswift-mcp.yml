@@ -5,7 +5,8 @@ servers:
 - name: Makeswift Documentation MCP Server
   url: https://docs.makeswift.com/_mcp/server
   transport: http
-  status: live
+  status: published
+  status_raw: live
   hosted: true
   official: true
   scope: documentation
