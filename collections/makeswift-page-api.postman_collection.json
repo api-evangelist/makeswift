@@ -1,0 +1,1233 @@
+{
+  "item": [
+    {
+      "id": "a4338fed-c1e3-44de-b8a0-1881bf98dbdb",
+      "name": "page",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d698ff79-d39f-4e34-8b10-81b1492aece4",
+          "name": "Create Page",
+          "request": {
+            "name": "Create Page",
+            "description": {
+              "content": "Creates a new page in a site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"siteId\": \"<uuid>\",\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a10a4ed-992a-4c26-87d9-f4ca6ef4c8b9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteId\": \"<uuid>\",\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"page\",\n  \"id\": \"a6f6abb5-9016-5d1e-a28b-22b680b474ce\",\n  \"pathname\": \"string\",\n  \"canonicalUrl\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"socialImageUrl\": \"string\",\n  \"sitemapPriority\": 4294.261530540615,\n  \"sitemapFrequency\": \"weekly\",\n  \"createdAt\": \"1950-04-02T22:47:09.568Z\",\n  \"updatedAt\": \"1966-01-11T08:55:07.868Z\",\n  \"publishedAt\": \"1982-11-16T03:33:46.271Z\",\n  \"isOnline\": true,\n  \"excludedFromSearchEngines\": true,\n  \"localizations\": [\n    {\n      \"pathname\": \"string\",\n      \"locale\": \"string\",\n      \"id\": \"aefc017d-24e5-d266-3908-e9b9d247cd82\"\n    },\n    {\n      \"pathname\": \"string\",\n      \"locale\": \"string\",\n      \"id\": \"e0ec8bee-3374-b594-eab4-cdc25ff74766\"\n    }\n  ],\n  \"locale\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "018bf776-ca3e-4a1d-b777-dca354f0854e",
+              "name": "Missing siteId field.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteId\": \"<uuid>\",\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13db1503-45f5-4f35-af4b-372b61cdc691",
+              "name": "Access forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteId\": \"<uuid>\",\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73fe4a7f-0ea3-4acf-9066-64509e2b7fe8",
+              "name": "A page or route with this pathname already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteId\": \"<uuid>\",\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7129bae8-a902-4e04-87e7-db52e1de217b",
+          "name": "List Pages",
+          "request": {
+            "name": "List Pages",
+            "description": {
+              "content": "Returns a list of pages for a site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "siteId",
+                  "value": "<uuid>",
+                  "description": "(Required) The site ID to list pages from."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "The maximum number of pages to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<uuid>",
+                  "description": "The pagination cursor. This is used to indicate what ID to list from."
+                },
+                {
+                  "disabled": false,
+                  "key": "pathPrefix",
+                  "value": "/",
+                  "description": "The filter that limits pages to only those with a pathname that begins with this value."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "path",
+                  "description": "The field to sort pages by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDirection",
+                  "value": "asc",
+                  "description": "The sort direction."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeOffline",
+                  "value": "false",
+                  "description": "The flag that determines whether to include offline pages in the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale code to filter pages by."
+                },
+                {
+                  "disabled": false,
+                  "key": "versionRef",
+                  "value": "ref:draft",
+                  "description": "The version reference to retrieve pages from. Defaults to `ref:draft` if not provided.\n\nSupported formats:\n- `ref:draft` - Draft/working version\n- `ref:live` - Live/published version"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "688bd932-9435-408b-96bf-91b08927fb6b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "pathPrefix",
+                      "value": "/"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "path"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "includeOffline",
+                      "value": "false"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "versionRef",
+                      "value": "ref:draft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"page\",\n      \"id\": \"07b3eaa9-a921-fdc7-b2be-2965d16443ad\",\n      \"pathname\": \"string\",\n      \"canonicalUrl\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"socialImageUrl\": \"string\",\n      \"sitemapPriority\": 2565.4595908356837,\n      \"sitemapFrequency\": \"always\",\n      \"createdAt\": \"1984-01-08T03:39:40.962Z\",\n      \"updatedAt\": \"1983-02-06T17:20:22.722Z\",\n      \"publishedAt\": \"1963-12-12T12:33:58.989Z\",\n      \"isOnline\": true,\n      \"excludedFromSearchEngines\": true,\n      \"localizations\": [\n        {\n          \"pathname\": \"string\",\n          \"locale\": \"string\",\n          \"id\": \"3c569295-18a7-6bdd-a5b7-49a77bdc8bec\"\n        },\n        {\n          \"pathname\": \"string\",\n          \"locale\": \"string\",\n          \"id\": \"1d887867-5916-5c9c-78a8-b4867e0b829d\"\n        }\n      ],\n      \"locale\": \"string\"\n    },\n    {\n      \"object\": \"page\",\n      \"id\": \"f765729e-0cc6-b8cc-f20d-582f01389fe2\",\n      \"pathname\": \"string\",\n      \"canonicalUrl\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"socialImageUrl\": \"string\",\n      \"sitemapPriority\": 826.888627649578,\n      \"sitemapFrequency\": \"always\",\n      \"createdAt\": \"1980-03-11T22:25:37.686Z\",\n      \"updatedAt\": \"1955-12-13T13:19:48.556Z\",\n      \"publishedAt\": \"2014-03-23T09:16:49.018Z\",\n      \"isOnline\": false,\n      \"excludedFromSearchEngines\": true,\n      \"localizations\": [\n        {\n          \"pathname\": \"string\",\n          \"locale\": \"string\",\n          \"id\": \"928104f8-d506-365d-b692-10ed38250e41\"\n        },\n        {\n          \"pathname\": \"string\",\n          \"locale\": \"string\",\n          \"id\": \"79101606-1934-15d9-b990-129e531855dd\"\n        }\n      ],\n      \"locale\": \"string\"\n    }\n  ],\n  \"hasMore\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "013d662b-d0ad-451c-85fd-c199980c6e8a",
+              "name": "Access forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "pathPrefix",
+                      "value": "/"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "path"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "includeOffline",
+                      "value": "false"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "versionRef",
+                      "value": "ref:draft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4a36597-813e-4316-ae7f-a359edf5725b",
+          "name": "Get Page",
+          "request": {
+            "name": "Get Page",
+            "description": {
+              "content": "Returns a page by its ID or pathname.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "pages",
+                ":pageIdOrPathname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "siteId",
+                  "value": "<uuid>",
+                  "description": "The site ID required when using a pathname instead of a page ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "versionRef",
+                  "value": "ref:draft",
+                  "description": "The version reference to retrieve the page from. Defaults to `ref:draft` if not provided.\n\nSupported formats:\n- `ref:draft` - Draft/working version\n- `ref:live` - Live/published version"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale to retrieve the page in. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. If provided and resolves to a non-default locale, localized page data is collapsed into the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageIdOrPathname",
+                  "description": "(Required) The page ID or pathname for the page you are requesting."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d37a30ff-58b9-4d6d-953b-7fbcda038c15",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "versionRef",
+                      "value": "ref:draft"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are requesting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"page\",\n  \"id\": \"118916e3-cbc4-bd22-94b5-a05a56a7990f\",\n  \"pathname\": \"string\",\n  \"canonicalUrl\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"socialImageUrl\": \"string\",\n  \"sitemapPriority\": 4688.99934390239,\n  \"sitemapFrequency\": \"hourly\",\n  \"createdAt\": \"2003-02-09T04:02:58.095Z\",\n  \"updatedAt\": \"1983-11-02T09:33:15.892Z\",\n  \"publishedAt\": \"1974-02-23T04:34:02.609Z\",\n  \"isOnline\": true,\n  \"excludedFromSearchEngines\": true,\n  \"localizations\": [\n    {\n      \"pathname\": \"string\",\n      \"locale\": \"string\",\n      \"id\": \"3a3f16ae-a83c-2fcf-1254-0434fff6cf00\"\n    },\n    {\n      \"pathname\": \"string\",\n      \"locale\": \"string\",\n      \"id\": \"3349eff5-c149-1f3b-85b1-1d1a8145aed3\"\n    }\n  ],\n  \"locale\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d0ae939-9842-4ff8-8338-a3389942e557",
+              "name": "Access forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "versionRef",
+                      "value": "ref:draft"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are requesting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cca503aa-a930-499b-b543-32c1fc7346a5",
+          "name": "Update Page",
+          "request": {
+            "name": "Update Page",
+            "description": {
+              "content": "Updates an existing page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "pages",
+                ":pageIdOrPathname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "siteId",
+                  "value": "<uuid>",
+                  "description": "The site ID required when using a pathname instead of a page ID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageIdOrPathname",
+                  "description": "(Required) The page ID or pathname for the page you are updating."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"isOnline\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c4a51cf-12db-4be4-a287-497ecb49a5f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are updating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"isOnline\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"page\",\n  \"id\": \"9f7c50a6-cdbb-ccae-41d5-dfadce3340d1\",\n  \"pathname\": \"string\",\n  \"canonicalUrl\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"socialImageUrl\": \"string\",\n  \"sitemapPriority\": 2399.243931320759,\n  \"sitemapFrequency\": \"monthly\",\n  \"createdAt\": \"1949-08-09T20:49:28.857Z\",\n  \"updatedAt\": \"1971-04-21T20:37:24.702Z\",\n  \"publishedAt\": \"2012-04-08T07:52:06.138Z\",\n  \"isOnline\": false,\n  \"excludedFromSearchEngines\": false,\n  \"localizations\": [\n    {\n      \"pathname\": \"string\",\n      \"locale\": \"string\",\n      \"id\": \"367dd098-ebbe-e13e-504d-3480963b7106\"\n    },\n    {\n      \"pathname\": \"string\",\n      \"locale\": \"string\",\n      \"id\": \"331421c0-4d56-5a9b-2900-a2e4013cdab0\"\n    }\n  ],\n  \"locale\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d085748d-2eb2-45bb-9c16-9617d7d1333a",
+              "name": "Missing pathname field.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are updating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"isOnline\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e1548d0-020d-4b67-b0e8-e0fb16956af9",
+              "name": "Access forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are updating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"isOnline\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9c59265-11cc-4b02-b91f-9653e9c7a039",
+              "name": "A page or route with this pathname already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are updating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pathname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"isOnline\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90e4e197-988e-4d01-a79f-c395ab61b9ea",
+          "name": "Delete Page",
+          "request": {
+            "name": "Delete Page",
+            "description": {
+              "content": "Deletes a page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "pages",
+                ":pageIdOrPathname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "siteId",
+                  "value": "<uuid>",
+                  "description": "The site ID required when using a pathname instead of a page ID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageIdOrPathname",
+                  "description": "(Required) The page ID or pathname for the page you are deleting."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc60ee96-7828-4a13-a4f1-92bd8ba044cd",
+              "name": "The response that indicates success when the page is deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are deleting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da3888e0-5ddf-4fa5-89dd-07149a21fc8d",
+              "name": "Access forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "pages",
+                    ":pageIdOrPathname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "siteId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageIdOrPathname",
+                      "description": "(Required) The page ID or pathname for the page you are deleting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.makeswift.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4bdbabea-637b-4e9b-98e3-f7ffa1de3127",
+    "name": "REST locale page API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

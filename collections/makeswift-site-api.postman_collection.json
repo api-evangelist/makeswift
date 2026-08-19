@@ -1,0 +1,1187 @@
+{
+  "item": [
+    {
+      "id": "4f72ad18-dca8-438f-b8b2-34a49c40ce3e",
+      "name": "site",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bcfc46d2-60cb-4314-9d2d-be15d1371b92",
+          "name": "Create Site",
+          "request": {
+            "name": "Create Site",
+            "description": {
+              "content": "Creates a new site in a workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"en-US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "313f2f5b-eab3-42e1-958f-245ebf916cd3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"en-US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"site\",\n  \"id\": \"7a90097e-5d36-8e19-9f24-db6d6cfc9b10\",\n  \"name\": \"string\",\n  \"hostOrigin\": \"https://PbIcvylxsEeAKfFVoRcmMLaKqVAbEnmU.uqfpc7Jm+,haWpKy1httcfJAQ+dvofH,kpvbHsEDGjG\",\n  \"publicApiKey\": \"c56a3311-1a84-03c7-c6f2-49df3aaa3547\",\n  \"defaultLocale\": \"string\",\n  \"localeManagementMode\": \"external\",\n  \"defaultLocalePathPrefix\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8203f662-056b-483e-b52a-77235b187368",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"en-US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"bad_request\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83117443-af19-445e-8685-8be8b57b7bff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"en-US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"forbidden\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f64d24f-54ec-4674-b79b-8e9445d425f1",
+          "name": "List Sites",
+          "request": {
+            "name": "List Sites",
+            "description": {
+              "content": "Returns a list of sites in a workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workspaceId",
+                  "value": "<uuid>",
+                  "description": "(Required) The workspace ID to list sites from."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "The maximum number of sites to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<uuid>",
+                  "description": "The pagination cursor. This is used to indicate what ID to list from."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e809f616-fc7a-4b4c-b26d-dd69972ebbf5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"site\",\n      \"id\": \"4fcff467-174d-9ee9-50c5-35ec1cf2ed0f\",\n      \"name\": \"string\",\n      \"hostOrigin\": \"http://rrSYQwpsCPUAAYeYeATZxB.agIS-oM5fh,KwXGPf2ccsWtI-rxcEKR\",\n      \"publicApiKey\": \"e7fac0da-96d3-15f8-5efc-a1b4a9db748f\",\n      \"defaultLocale\": \"string\",\n      \"localeManagementMode\": \"internal\",\n      \"defaultLocalePathPrefix\": \"string\"\n    },\n    {\n      \"object\": \"site\",\n      \"id\": \"31acd1b0-cdf5-1c7c-bb7c-5311af4fefd1\",\n      \"name\": \"string\",\n      \"hostOrigin\": \"http://PBqUcOIICDif.rmlzFU3jds4I2qESzGoC2Ay\",\n      \"publicApiKey\": \"2b7072d8-da1f-fb4b-f6f6-05d409e7685b\",\n      \"defaultLocale\": \"string\",\n      \"localeManagementMode\": \"external\",\n      \"defaultLocalePathPrefix\": \"string\"\n    }\n  ],\n  \"hasMore\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89a542d3-0aea-4390-9ac8-3db6feff7f9c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"forbidden\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "913a5793-2bb7-4894-bf9f-f83aedc34373",
+          "name": "Get Site",
+          "request": {
+            "name": "Get Site",
+            "description": {
+              "content": "Returns a site by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sites",
+                ":siteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "siteId",
+                  "description": "(Required) The site ID for the site you are requesting."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7dedbc0-2be2-4665-bbcf-759c60452f2d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are requesting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"site\",\n  \"id\": \"67406636-95f3-8c8f-6185-4499dfe063bc\",\n  \"name\": \"string\",\n  \"hostOrigin\": \"https://XdjQECHpwcWlM.fpauaGGn4gSnAc5hvYqBAlBJND-2\",\n  \"publicApiKey\": \"86881f0c-7d93-1168-6c28-268b165619d6\",\n  \"defaultLocale\": \"string\",\n  \"localeManagementMode\": \"external\",\n  \"defaultLocalePathPrefix\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "476818d0-b5a5-4009-a552-e37ae709ce7b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are requesting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"forbidden\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d70002fe-8e96-4bbc-aa0c-4777bee46e28",
+          "name": "Update Site",
+          "request": {
+            "name": "Update Site",
+            "description": {
+              "content": "Updates an existing site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sites",
+                ":siteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "siteId",
+                  "description": "(Required) The site ID for the site you are updating."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6087a0a-843a-4d35-a93f-06087acd5408",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are updating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"site\",\n  \"id\": \"9e1c02d0-34d1-f1e8-3adb-d707401e015c\",\n  \"name\": \"string\",\n  \"hostOrigin\": \"https://KBTyeILIEJfo.mrziBChIuhnfursb2cy5fGe0Hdb2eWXxr\",\n  \"publicApiKey\": \"40675e83-2ba4-4afd-1060-ca5aa05acf25\",\n  \"defaultLocale\": \"string\",\n  \"localeManagementMode\": \"external\",\n  \"defaultLocalePathPrefix\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1726135a-6cb1-4e3e-908f-079d6c4bc005",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are updating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"bad_request\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c374c579-e58a-4e5b-8e1a-b3d1dba94291",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are updating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"hostOrigin\": \"<uri>\",\n  \"defaultLocale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"forbidden\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "328cb6ba-c6c1-402f-a20c-97c0e44f2d90",
+          "name": "Delete Site",
+          "request": {
+            "name": "Delete Site",
+            "description": {
+              "content": "Deletes a site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sites",
+                ":siteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "siteId",
+                  "description": "(Required) The site ID for the site you are deleting."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d873f0f-b53e-431b-b752-764ed51d84f9",
+              "name": "Site successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are deleting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cfca6ce-772a-475a-a072-74cf5405ae49",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are deleting."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"forbidden\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e258f0d-94f5-4aa1-90ce-018343072356",
+          "name": "Duplicate Site",
+          "request": {
+            "name": "Duplicate Site",
+            "description": {
+              "content": "Duplicates an existing site with all its content and configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sites",
+                ":siteId",
+                "duplicate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "siteId",
+                  "description": "(Required) The site ID for the site you are duplicating."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a069bcfa-0d3e-4bea-b076-207679861e25",
+              "name": "Returns the newly created duplicated site.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are duplicating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"site\",\n  \"id\": \"05196e05-e0d6-c093-edc0-dd7c1d2688f2\",\n  \"name\": \"string\",\n  \"hostOrigin\": \"http://vPDbNLkTIjEkSaLwszrWfrACDhUBR.ioezyT,uDXn6bPa89+N,gm6\",\n  \"publicApiKey\": \"07fd5b7c-b3e1-1531-25bb-ffd9262e2765\",\n  \"defaultLocale\": \"string\",\n  \"localeManagementMode\": \"internal\",\n  \"defaultLocalePathPrefix\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fcd97a8-695b-4eaf-ae8e-0da68b6aa04f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are duplicating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"bad_request\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94b2f731-5243-411f-a6b4-c8a9da04a6cd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sites",
+                    ":siteId",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "siteId",
+                      "description": "(Required) The site ID for the site you are duplicating."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) API key authentication. Accepts either:\n- App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)\n- Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"code\": \"forbidden\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.makeswift.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3b13034-8adf-496b-93cb-4d93d28f4e06",
+    "name": "REST locale site API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST locale page API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "page",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.makeswift.com/v6/pages",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID to list pages from."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of pages to return."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor. This is used to indicate what ID to list from."
+              },
+              {
+                "name": "pathPrefix",
+                "value": "",
+                "type": "query",
+                "description": "The filter that limits pages to only those with a pathname that begins with this value."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort pages by."
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query",
+                "description": "The sort direction."
+              },
+              {
+                "name": "includeOffline",
+                "value": "",
+                "type": "query",
+                "description": "The flag that determines whether to include offline pages in the results."
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale code to filter pages by."
+              },
+              {
+                "name": "versionRef",
+                "value": "",
+                "type": "query",
+                "description": "The version reference to retrieve pages from. Defaults to `ref:draft` if not provided.\n\nSupported formats:\n- `ref:draft` - Draft/working version\n- `ref:live` - Live/published version"
+              }
+            ]
+          },
+          "docs": "Returns a list of pages for a site."
+        },
+        {
+          "info": {
+            "name": "Create Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.makeswift.com/v6/pages",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new page in a site."
+        },
+        {
+          "info": {
+            "name": "Get Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.makeswift.com/v6/pages/:pageIdOrPathname",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pageIdOrPathname",
+                "value": "",
+                "type": "path",
+                "description": "The page ID or pathname for the page you are requesting."
+              },
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID required when using a pathname instead of a page ID."
+              },
+              {
+                "name": "versionRef",
+                "value": "",
+                "type": "query",
+                "description": "The version reference to retrieve the page from. Defaults to `ref:draft` if not provided.\n\nSupported formats:\n- `ref:draft` - Draft/working version\n- `ref:live` - Live/published version"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale to retrieve the page in. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. If provided and resolves to a non-default locale, localized page data is collapsed into the response."
+              }
+            ]
+          },
+          "docs": "Returns a page by its ID or pathname."
+        },
+        {
+          "info": {
+            "name": "Update Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.makeswift.com/v6/pages/:pageIdOrPathname",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pageIdOrPathname",
+                "value": "",
+                "type": "path",
+                "description": "The page ID or pathname for the page you are updating."
+              },
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID required when using a pathname instead of a page ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing page."
+        },
+        {
+          "info": {
+            "name": "Delete Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.makeswift.com/v6/pages/:pageIdOrPathname",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pageIdOrPathname",
+                "value": "",
+                "type": "path",
+                "description": "The page ID or pathname for the page you are deleting."
+              },
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID required when using a pathname instead of a page ID."
+              }
+            ]
+          },
+          "docs": "Deletes a page."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

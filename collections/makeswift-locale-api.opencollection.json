@@ -1,0 +1,204 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST locale API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "locale",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Locales",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.makeswift.com/v2/locales",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID to list locales from."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of locales to return."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor. This is used to indicate what ID to list from."
+              }
+            ]
+          },
+          "docs": "Returns a list of locales for a site."
+        },
+        {
+          "info": {
+            "name": "Create Locale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.makeswift.com/v2/locales",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new locale for a site."
+        },
+        {
+          "info": {
+            "name": "Get Locale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.makeswift.com/v2/locales/:localeIdOrCode",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "localeIdOrCode",
+                "value": "",
+                "type": "path",
+                "description": "The locale ID or locale code."
+              },
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID required when using a locale code instead of a locale ID."
+              }
+            ]
+          },
+          "docs": "Returns a locale by its ID or locale code."
+        },
+        {
+          "info": {
+            "name": "Update Locale",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.makeswift.com/v2/locales/:localeIdOrCode",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "localeIdOrCode",
+                "value": "",
+                "type": "path",
+                "description": "The locale ID or locale code."
+              },
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID required when using a locale code instead of a locale ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing locale."
+        },
+        {
+          "info": {
+            "name": "Delete Locale",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.makeswift.com/v2/locales/:localeIdOrCode",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "localeIdOrCode",
+                "value": "",
+                "type": "path",
+                "description": "The locale ID or locale code."
+              },
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID required when using a locale code instead of a locale ID."
+              }
+            ]
+          },
+          "docs": "Deletes a locale."
+        },
+        {
+          "info": {
+            "name": "Restore Locale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.makeswift.com/v2/locales/:localeIdOrCode/restore",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "localeIdOrCode",
+                "value": "",
+                "type": "path",
+                "description": "The locale ID or locale code."
+              },
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "query",
+                "description": "The site ID required when using a locale code instead of a locale ID."
+              }
+            ]
+          },
+          "docs": "Restores a previously deleted locale."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
