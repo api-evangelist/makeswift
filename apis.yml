@@ -54,6 +54,8 @@ apis:
   humanURL: https://docs.makeswift.com/developer/api-reference/overview
   baseURL: https://api.makeswift.com
   tags:
+  - Locale
+  tags_raw:
   - locale
   properties:
   - type: OpenAPI
@@ -80,6 +82,8 @@ apis:
   humanURL: https://docs.makeswift.com/developer/api-reference/overview
   baseURL: https://api.makeswift.com
   tags:
+  - Page
+  tags_raw:
   - page
   properties:
   - type: OpenAPI
@@ -106,6 +110,8 @@ apis:
   humanURL: https://docs.makeswift.com/developer/api-reference/overview
   baseURL: https://api.makeswift.com
   tags:
+  - Site
+  tags_raw:
   - site
   properties:
   - type: OpenAPI
