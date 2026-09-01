@@ -94,7 +94,7 @@ apis:
   humanURL: https://docs.makeswift.com/developer/api-reference/overview
   baseURL: https://api.makeswift.com
   tags:
-  - page
+  - Page
   tags_raw:
   - page
   properties:
