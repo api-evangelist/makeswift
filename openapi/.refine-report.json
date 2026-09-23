@@ -1,9 +1,7 @@
 {
   "provider": "makeswift",
   "sources": [
-    "makeswift-locale-api-openapi.yml",
-    "makeswift-page-api-openapi.yml",
-    "makeswift-site-api-openapi.yml"
+    "_original/makeswift-openapi.json"
   ],
   "outputs": [
     "makeswift-locale-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "makeswift-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "makeswift-openapi.json: declared missing tag: locale",
+    "makeswift-openapi.json: declared missing tag: page",
+    "makeswift-openapi.json: declared missing tag: site",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "makeswift-locale-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "makeswift-page-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "makeswift-site-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
