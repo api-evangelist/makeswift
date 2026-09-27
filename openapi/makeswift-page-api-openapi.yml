@@ -326,79 +326,7 @@ paths:
                 description: Any type
 components:
   schemas:
-    UpdatePageV6ResponseBodyDtoObject:
-      type: string
-      enum:
-      - page
-      title: UpdatePageV6ResponseBodyDtoObject
-    CreatePageV6ResponseBodyDtoObject:
-      type: string
-      enum:
-      - page
-      title: CreatePageV6ResponseBodyDtoObject
-    V6PagesGetParametersVersionRef:
-      type: string
-      enum:
-      - ref:live
-      - ref:draft
-      default: ref:draft
-      title: V6PagesGetParametersVersionRef
-    UpdatePageV6RequestBodyDto:
-      type: object
-      properties:
-        pathname:
-          type: string
-          description: The page pathname.
-        name:
-          type: string
-          description: The page name.
-        isOnline:
-          type: boolean
-          description: The flag that indicates whether the page is online.
-      title: UpdatePageV6RequestBodyDto
-    ListPagesV2ResponseBodyDtoObject:
-      type: string
-      enum:
-      - list
-      title: ListPagesV2ResponseBodyDtoObject
-    UpdatePageV6ResponseBodyDtoLocalizationsItems:
-      type: object
-      properties:
-        locale:
-          type: string
-          description: The locale of the localization.
-        pathname:
-          type: string
-          description: The pathname of the localization.
-        id:
-          type: string
-          format: uuid
-          description: The ID of the localization.
-      required:
-      - pathname
-      title: UpdatePageV6ResponseBodyDtoLocalizationsItems
-    GetPageV6ResponseBodyDtoObject:
-      type: string
-      enum:
-      - page
-      title: GetPageV6ResponseBodyDtoObject
-    CreatePageV6ResponseBodyDtoLocalizationsItems:
-      type: object
-      properties:
-        locale:
-          type: string
-          description: The locale of the localization.
-        pathname:
-          type: string
-          description: The pathname of the localization.
-        id:
-          type: string
-          format: uuid
-          description: The ID of the localization.
-      required:
-      - pathname
-      title: CreatePageV6ResponseBodyDtoLocalizationsItems
-    CreatePageV6ResponseBodyDtoSitemapFrequency:
+    ListPagesV2ResponseBodyDtoDataItemsSitemapFrequency:
       type: string
       enum:
       - always
@@ -409,214 +337,7 @@ components:
       - yearly
       - never
       description: The sitemap update frequency.
-      title: CreatePageV6ResponseBodyDtoSitemapFrequency
-    ListPagesV2ResponseBodyDtoDataItemsObject:
-      type: string
-      enum:
-      - page
-      title: ListPagesV2ResponseBodyDtoDataItemsObject
-    ListPagesV2ResponseBodyDtoDataItems:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/ListPagesV2ResponseBodyDtoDataItemsObject'
-        id:
-          type: string
-          format: uuid
-          description: The ID of the page.
-        pathname:
-          type: string
-          description: The page pathname.
-        canonicalUrl:
-          type:
-          - string
-          - 'null'
-          description: The canonical URL of the page.
-        title:
-          type:
-          - string
-          - 'null'
-          description: The page title.
-        description:
-          type:
-          - string
-          - 'null'
-          description: The page description.
-        socialImageUrl:
-          type:
-          - string
-          - 'null'
-          description: The social image URL of the page.
-        sitemapPriority:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: The sitemap priority.
-        sitemapFrequency:
-          oneOf:
-          - $ref: '#/components/schemas/ListPagesV2ResponseBodyDtoDataItemsSitemapFrequency'
-          - type: 'null'
-          description: The sitemap update frequency.
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: The page creation date and time.
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: The page last update date and time.
-        publishedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: The page publication date and time.
-        isOnline:
-          type: boolean
-          description: The flag that indicates whether the page is online.
-        excludedFromSearchEngines:
-          type:
-          - boolean
-          - 'null'
-          description: The flag that indicates whether the page is excluded from search.
-        locale:
-          type: string
-          description: The page locale. This defaults to the default locale of the parent site.
-        localizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListPagesV2ResponseBodyDtoDataItemsLocalizationsItems'
-          description: The localizations of the page.
-      required:
-      - object
-      - id
-      - pathname
-      - canonicalUrl
-      - title
-      - description
-      - socialImageUrl
-      - sitemapPriority
-      - sitemapFrequency
-      - createdAt
-      - updatedAt
-      - publishedAt
-      - isOnline
-      - excludedFromSearchEngines
-      - localizations
-      title: ListPagesV2ResponseBodyDtoDataItems
-    V6PagesPageIdOrPathnameGetParametersVersionRef:
-      type: string
-      enum:
-      - ref:live
-      - ref:draft
-      default: ref:draft
-      title: V6PagesPageIdOrPathnameGetParametersVersionRef
-    CreatePageV6ResponseBodyDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/CreatePageV6ResponseBodyDtoObject'
-        id:
-          type: string
-          format: uuid
-          description: The ID of the page.
-        pathname:
-          type: string
-          description: The page pathname.
-        canonicalUrl:
-          type:
-          - string
-          - 'null'
-          description: The canonical URL of the page.
-        title:
-          type:
-          - string
-          - 'null'
-          description: The page title.
-        description:
-          type:
-          - string
-          - 'null'
-          description: The page description.
-        socialImageUrl:
-          type:
-          - string
-          - 'null'
-          description: The social image URL of the page.
-        sitemapPriority:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: The sitemap priority.
-        sitemapFrequency:
-          oneOf:
-          - $ref: '#/components/schemas/CreatePageV6ResponseBodyDtoSitemapFrequency'
-          - type: 'null'
-          description: The sitemap update frequency.
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: The page creation date and time.
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: The page last update date and time.
-        publishedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: The page publication date and time.
-        isOnline:
-          type: boolean
-          description: The flag that indicates whether the page is online.
-        excludedFromSearchEngines:
-          type:
-          - boolean
-          - 'null'
-          description: The flag that indicates whether the page is excluded from search.
-        locale:
-          type: string
-          description: The page locale. This defaults to the default locale of the parent site.
-        localizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreatePageV6ResponseBodyDtoLocalizationsItems'
-          description: The localizations of the page.
-      required:
-      - object
-      - id
-      - pathname
-      - canonicalUrl
-      - title
-      - description
-      - socialImageUrl
-      - sitemapPriority
-      - sitemapFrequency
-      - createdAt
-      - updatedAt
-      - publishedAt
-      - isOnline
-      - excludedFromSearchEngines
-      - localizations
-      title: CreatePageV6ResponseBodyDto
-    V6PagesGetParametersIncludeOffline:
-      type: string
-      enum:
-      - 'true'
-      - 'false'
-      default: 'false'
-      title: V6PagesGetParametersIncludeOffline
+      title: ListPagesV2ResponseBodyDtoDataItemsSitemapFrequency
     UpdatePageV6ResponseBodyDto:
       type: object
       properties:
@@ -711,6 +432,35 @@ components:
       - excludedFromSearchEngines
       - localizations
       title: UpdatePageV6ResponseBodyDto
+    UpdatePageV6RequestBodyDto:
+      type: object
+      properties:
+        pathname:
+          type: string
+          description: The page pathname.
+        name:
+          type: string
+          description: The page name.
+        isOnline:
+          type: boolean
+          description: The flag that indicates whether the page is online.
+      title: UpdatePageV6RequestBodyDto
+    ListPagesV2ResponseBodyDtoDataItemsLocalizationsItems:
+      type: object
+      properties:
+        locale:
+          type: string
+          description: The locale of the localization.
+        pathname:
+          type: string
+          description: The pathname of the localization.
+        id:
+          type: string
+          format: uuid
+          description: The ID of the localization.
+      required:
+      - pathname
+      title: ListPagesV2ResponseBodyDtoDataItemsLocalizationsItems
     ListPagesV2ResponseBodyDto:
       type: object
       properties:
@@ -728,19 +478,36 @@ components:
       - data
       - hasMore
       title: ListPagesV2ResponseBodyDto
-    GetPageV6ResponseBodyDtoSitemapFrequency:
+    V6PagesGetParametersSortDirection:
       type: string
       enum:
-      - always
-      - hourly
-      - daily
-      - weekly
-      - monthly
-      - yearly
-      - never
-      description: The sitemap update frequency.
-      title: GetPageV6ResponseBodyDtoSitemapFrequency
-    ListPagesV2ResponseBodyDtoDataItemsLocalizationsItems:
+      - asc
+      - desc
+      default: asc
+      title: V6PagesGetParametersSortDirection
+    UpdatePageV6ResponseBodyDtoObject:
+      type: string
+      enum:
+      - page
+      title: UpdatePageV6ResponseBodyDtoObject
+    V6PagesGetParametersVersionRef:
+      type: string
+      enum:
+      - ref:live
+      - ref:draft
+      default: ref:draft
+      title: V6PagesGetParametersVersionRef
+    GetPageV6ResponseBodyDtoObject:
+      type: string
+      enum:
+      - page
+      title: GetPageV6ResponseBodyDtoObject
+    ListPagesV2ResponseBodyDtoDataItemsObject:
+      type: string
+      enum:
+      - page
+      title: ListPagesV2ResponseBodyDtoDataItemsObject
+    CreatePageV6ResponseBodyDtoLocalizationsItems:
       type: object
       properties:
         locale:
@@ -755,17 +522,26 @@ components:
           description: The ID of the localization.
       required:
       - pathname
-      title: ListPagesV2ResponseBodyDtoDataItemsLocalizationsItems
-    V6PagesGetParametersSortBy:
+      title: CreatePageV6ResponseBodyDtoLocalizationsItems
+    UpdatePageV6ResponseBodyDtoSitemapFrequency:
       type: string
       enum:
-      - title
-      - path
-      - description
-      - updatedAt
-      - createdAt
-      default: path
-      title: V6PagesGetParametersSortBy
+      - always
+      - hourly
+      - daily
+      - weekly
+      - monthly
+      - yearly
+      - never
+      description: The sitemap update frequency.
+      title: UpdatePageV6ResponseBodyDtoSitemapFrequency
+    V6PagesGetParametersIncludeOffline:
+      type: string
+      enum:
+      - 'true'
+      - 'false'
+      default: 'false'
+      title: V6PagesGetParametersIncludeOffline
     GetPageV6ResponseBodyDtoLocalizationsItems:
       type: object
       properties:
@@ -782,6 +558,141 @@ components:
       required:
       - pathname
       title: GetPageV6ResponseBodyDtoLocalizationsItems
+    CreatePageV6ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/CreatePageV6ResponseBodyDtoObject'
+        id:
+          type: string
+          format: uuid
+          description: The ID of the page.
+        pathname:
+          type: string
+          description: The page pathname.
+        canonicalUrl:
+          type:
+          - string
+          - 'null'
+          description: The canonical URL of the page.
+        title:
+          type:
+          - string
+          - 'null'
+          description: The page title.
+        description:
+          type:
+          - string
+          - 'null'
+          description: The page description.
+        socialImageUrl:
+          type:
+          - string
+          - 'null'
+          description: The social image URL of the page.
+        sitemapPriority:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: The sitemap priority.
+        sitemapFrequency:
+          oneOf:
+          - $ref: '#/components/schemas/CreatePageV6ResponseBodyDtoSitemapFrequency'
+          - type: 'null'
+          description: The sitemap update frequency.
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The page creation date and time.
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The page last update date and time.
+        publishedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The page publication date and time.
+        isOnline:
+          type: boolean
+          description: The flag that indicates whether the page is online.
+        excludedFromSearchEngines:
+          type:
+          - boolean
+          - 'null'
+          description: The flag that indicates whether the page is excluded from search.
+        locale:
+          type: string
+          description: The page locale. This defaults to the default locale of the parent site.
+        localizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreatePageV6ResponseBodyDtoLocalizationsItems'
+          description: The localizations of the page.
+      required:
+      - object
+      - id
+      - pathname
+      - canonicalUrl
+      - title
+      - description
+      - socialImageUrl
+      - sitemapPriority
+      - sitemapFrequency
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - isOnline
+      - excludedFromSearchEngines
+      - localizations
+      title: CreatePageV6ResponseBodyDto
+    GetPageV6ResponseBodyDtoSitemapFrequency:
+      type: string
+      enum:
+      - always
+      - hourly
+      - daily
+      - weekly
+      - monthly
+      - yearly
+      - never
+      description: The sitemap update frequency.
+      title: GetPageV6ResponseBodyDtoSitemapFrequency
+    V6PagesPageIdOrPathnameGetParametersVersionRef:
+      type: string
+      enum:
+      - ref:live
+      - ref:draft
+      default: ref:draft
+      title: V6PagesPageIdOrPathnameGetParametersVersionRef
+    CreatePageV6ResponseBodyDtoObject:
+      type: string
+      enum:
+      - page
+      title: CreatePageV6ResponseBodyDtoObject
+    CreatePageV6ResponseBodyDtoSitemapFrequency:
+      type: string
+      enum:
+      - always
+      - hourly
+      - daily
+      - weekly
+      - monthly
+      - yearly
+      - never
+      description: The sitemap update frequency.
+      title: CreatePageV6ResponseBodyDtoSitemapFrequency
+    ListPagesV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - list
+      title: ListPagesV2ResponseBodyDtoObject
     CreatePageV6RequestBodyDto:
       type: object
       properties:
@@ -800,30 +711,126 @@ components:
       - pathname
       - name
       title: CreatePageV6RequestBodyDto
-    UpdatePageV6ResponseBodyDtoSitemapFrequency:
+    UpdatePageV6ResponseBodyDtoLocalizationsItems:
+      type: object
+      properties:
+        locale:
+          type: string
+          description: The locale of the localization.
+        pathname:
+          type: string
+          description: The pathname of the localization.
+        id:
+          type: string
+          format: uuid
+          description: The ID of the localization.
+      required:
+      - pathname
+      title: UpdatePageV6ResponseBodyDtoLocalizationsItems
+    ListPagesV2ResponseBodyDtoDataItems:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListPagesV2ResponseBodyDtoDataItemsObject'
+        id:
+          type: string
+          format: uuid
+          description: The ID of the page.
+        pathname:
+          type: string
+          description: The page pathname.
+        canonicalUrl:
+          type:
+          - string
+          - 'null'
+          description: The canonical URL of the page.
+        title:
+          type:
+          - string
+          - 'null'
+          description: The page title.
+        description:
+          type:
+          - string
+          - 'null'
+          description: The page description.
+        socialImageUrl:
+          type:
+          - string
+          - 'null'
+          description: The social image URL of the page.
+        sitemapPriority:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: The sitemap priority.
+        sitemapFrequency:
+          oneOf:
+          - $ref: '#/components/schemas/ListPagesV2ResponseBodyDtoDataItemsSitemapFrequency'
+          - type: 'null'
+          description: The sitemap update frequency.
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The page creation date and time.
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The page last update date and time.
+        publishedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The page publication date and time.
+        isOnline:
+          type: boolean
+          description: The flag that indicates whether the page is online.
+        excludedFromSearchEngines:
+          type:
+          - boolean
+          - 'null'
+          description: The flag that indicates whether the page is excluded from search.
+        locale:
+          type: string
+          description: The page locale. This defaults to the default locale of the parent site.
+        localizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListPagesV2ResponseBodyDtoDataItemsLocalizationsItems'
+          description: The localizations of the page.
+      required:
+      - object
+      - id
+      - pathname
+      - canonicalUrl
+      - title
+      - description
+      - socialImageUrl
+      - sitemapPriority
+      - sitemapFrequency
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - isOnline
+      - excludedFromSearchEngines
+      - localizations
+      title: ListPagesV2ResponseBodyDtoDataItems
+    V6PagesGetParametersSortBy:
       type: string
       enum:
-      - always
-      - hourly
-      - daily
-      - weekly
-      - monthly
-      - yearly
-      - never
-      description: The sitemap update frequency.
-      title: UpdatePageV6ResponseBodyDtoSitemapFrequency
-    ListPagesV2ResponseBodyDtoDataItemsSitemapFrequency:
-      type: string
-      enum:
-      - always
-      - hourly
-      - daily
-      - weekly
-      - monthly
-      - yearly
-      - never
-      description: The sitemap update frequency.
-      title: ListPagesV2ResponseBodyDtoDataItemsSitemapFrequency
+      - title
+      - path
+      - description
+      - updatedAt
+      - createdAt
+      default: path
+      title: V6PagesGetParametersSortBy
     GetPageV6ResponseBodyDto:
       type: object
       properties:
@@ -918,13 +925,6 @@ components:
       - excludedFromSearchEngines
       - localizations
       title: GetPageV6ResponseBodyDto
-    V6PagesGetParametersSortDirection:
-      type: string
-      enum:
-      - asc
-      - desc
-      default: asc
-      title: V6PagesGetParametersSortDirection
   securitySchemes:
     Authentication:
       type: apiKey

@@ -62,7 +62,7 @@ maintainers:
   email: info@apis.io
 apis:
 - aid: makeswift:makeswift-locale-api
-  name: Makeswift locale API
+  name: Makeswift Locale API
   description: The locale API from Makeswift — 3 operation(s) for locale.
   humanURL: https://docs.makeswift.com/developer/api-reference/overview
   baseURL: https://api.makeswift.com
@@ -90,7 +90,7 @@ apis:
   - type: APIReference
     url: https://docs.makeswift.com/developer/api-reference/overview
 - aid: makeswift:makeswift-page-api
-  name: Makeswift page API
+  name: Makeswift Page API
   description: The page API from Makeswift — 2 operation(s) for page.
   humanURL: https://docs.makeswift.com/developer/api-reference/overview
   baseURL: https://api.makeswift.com
@@ -118,7 +118,7 @@ apis:
   - type: APIReference
     url: https://docs.makeswift.com/developer/api-reference/overview
 - aid: makeswift:makeswift-site-api
-  name: Makeswift site API
+  name: Makeswift Site API
   description: The site API from Makeswift — 3 operation(s) for site.
   humanURL: https://docs.makeswift.com/developer/api-reference/overview
   baseURL: https://api.makeswift.com
