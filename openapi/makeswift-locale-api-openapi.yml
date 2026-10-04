@@ -350,79 +350,36 @@ paths:
                 $ref: '#/components/schemas/ConflictResponseDto'
 components:
   schemas:
-    RestoreSiteLocaleV2ResponseBodyDtoObject:
+    ListSiteLocaleV2ResponseBodyDtoDataItemsObject:
       type: string
       enum:
       - locale
-      title: RestoreSiteLocaleV2ResponseBodyDtoObject
-    NotFoundResponseDtoObject:
+      title: ListSiteLocaleV2ResponseBodyDtoDataItemsObject
+    NotFoundResponseDtoCode:
       type: string
       enum:
-      - error
-      title: NotFoundResponseDtoObject
+      - not_found
+      title: NotFoundResponseDtoCode
+    ReadSiteLocaleV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - locale
+      title: ReadSiteLocaleV2ResponseBodyDtoObject
+    CreateSiteLocaleV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - locale
+      title: CreateSiteLocaleV2ResponseBodyDtoObject
     ForbiddenResponseDtoObject:
       type: string
       enum:
       - error
       title: ForbiddenResponseDtoObject
-    ListSiteLocaleV2ResponseBodyDtoObject:
+    BadRequestResponseDtoCode:
       type: string
       enum:
-      - list
-      title: ListSiteLocaleV2ResponseBodyDtoObject
-    CreateSiteLocaleV2ResponseBodyDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/CreateSiteLocaleV2ResponseBodyDtoObject'
-        id:
-          type: string
-          format: uuid
-          description: The ID of the created locale.
-        locale:
-          type: string
-          description: We support the subset of locales specified with ISO 3166 that are composed of language and optionally a region.
-        domain:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: The domain URL for domain-based localization.
-        pathPrefix:
-          type:
-          - string
-          - 'null'
-          description: Custom URL path prefix. Null means the locale code is used as the default prefix.
-        isDefault:
-          type: boolean
-          description: The flag that indicates whether this locale is the default locale for the site.
-      required:
-      - object
-      - id
-      - locale
-      - domain
-      - pathPrefix
-      - isDefault
-      title: CreateSiteLocaleV2ResponseBodyDto
-    ConflictResponseDtoCode:
-      type: string
-      enum:
-      - conflict
-      title: ConflictResponseDtoCode
-    ConflictResponseDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/ConflictResponseDtoObject'
-        code:
-          $ref: '#/components/schemas/ConflictResponseDtoCode'
-        message:
-          type: string
-      required:
-      - object
-      - code
-      - message
-      title: ConflictResponseDto
+      - bad_request
+      title: BadRequestResponseDtoCode
     ReadSiteLocaleV2ResponseBodyDto:
       type: object
       properties:
@@ -459,11 +416,166 @@ components:
       - pathPrefix
       - isDefault
       title: ReadSiteLocaleV2ResponseBodyDto
-    ListSiteLocaleV2ResponseBodyDtoDataItemsObject:
+    ConflictResponseDtoObject:
       type: string
       enum:
+      - error
+      title: ConflictResponseDtoObject
+    BadRequestResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/BadRequestResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/BadRequestResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: BadRequestResponseDto
+    ForbiddenResponseDtoCode:
+      type: string
+      enum:
+      - forbidden
+      title: ForbiddenResponseDtoCode
+    UpdateSiteLocaleV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/UpdateSiteLocaleV2ResponseBodyDtoObject'
+        id:
+          type: string
+          format: uuid
+          description: The ID of the updated locale.
+        locale:
+          type: string
+          description: We support the subset of locales specified with ISO 3166 that are composed of language and optionally a region.
+        domain:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The domain URL for domain-based localization.
+        pathPrefix:
+          type:
+          - string
+          - 'null'
+          description: Custom URL path prefix. Null means the locale code is used as the default prefix.
+        isDefault:
+          type: boolean
+          description: The flag that indicates whether this locale is the default locale for the site.
+      required:
+      - object
+      - id
       - locale
-      title: ListSiteLocaleV2ResponseBodyDtoDataItemsObject
+      - domain
+      - pathPrefix
+      - isDefault
+      title: UpdateSiteLocaleV2ResponseBodyDto
+    ListSiteLocaleV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - list
+      title: ListSiteLocaleV2ResponseBodyDtoObject
+    BadRequestResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: BadRequestResponseDtoObject
+    CreateSiteLocaleV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/CreateSiteLocaleV2ResponseBodyDtoObject'
+        id:
+          type: string
+          format: uuid
+          description: The ID of the created locale.
+        locale:
+          type: string
+          description: We support the subset of locales specified with ISO 3166 that are composed of language and optionally a region.
+        domain:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The domain URL for domain-based localization.
+        pathPrefix:
+          type:
+          - string
+          - 'null'
+          description: Custom URL path prefix. Null means the locale code is used as the default prefix.
+        isDefault:
+          type: boolean
+          description: The flag that indicates whether this locale is the default locale for the site.
+      required:
+      - object
+      - id
+      - locale
+      - domain
+      - pathPrefix
+      - isDefault
+      title: CreateSiteLocaleV2ResponseBodyDto
+    UpdateSiteLocaleV2RequestBodyDto:
+      type: object
+      properties:
+        locale:
+          type: string
+          description: Locale of the site locale.
+        domain:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The domain URL for domain-based localization. This URL must include the protocol.
+      title: UpdateSiteLocaleV2RequestBodyDto
+    ForbiddenResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ForbiddenResponseDto
+    ConflictResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ConflictResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ConflictResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ConflictResponseDto
+    ListSiteLocaleV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListSiteLocaleV2ResponseBodyDtoObject'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListSiteLocaleV2ResponseBodyDtoDataItems'
+        hasMore:
+          type: boolean
+          description: The flag that indicates whether there are more locales available.
+      required:
+      - object
+      - data
+      - hasMore
+      title: ListSiteLocaleV2ResponseBodyDto
     ListSiteLocaleV2ResponseBodyDtoDataItems:
       type: object
       properties:
@@ -500,74 +612,11 @@ components:
       - pathPrefix
       - isDefault
       title: ListSiteLocaleV2ResponseBodyDtoDataItems
-    ConflictResponseDtoObject:
+    UpdateSiteLocaleV2ResponseBodyDtoObject:
       type: string
       enum:
-      - error
-      title: ConflictResponseDtoObject
-    BadRequestResponseDtoObject:
-      type: string
-      enum:
-      - error
-      title: BadRequestResponseDtoObject
-    UpdateSiteLocaleV2ResponseBodyDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/UpdateSiteLocaleV2ResponseBodyDtoObject'
-        id:
-          type: string
-          format: uuid
-          description: The ID of the updated locale.
-        locale:
-          type: string
-          description: We support the subset of locales specified with ISO 3166 that are composed of language and optionally a region.
-        domain:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: The domain URL for domain-based localization.
-        pathPrefix:
-          type:
-          - string
-          - 'null'
-          description: Custom URL path prefix. Null means the locale code is used as the default prefix.
-        isDefault:
-          type: boolean
-          description: The flag that indicates whether this locale is the default locale for the site.
-      required:
-      - object
-      - id
       - locale
-      - domain
-      - pathPrefix
-      - isDefault
-      title: UpdateSiteLocaleV2ResponseBodyDto
-    ForbiddenResponseDtoCode:
-      type: string
-      enum:
-      - forbidden
-      title: ForbiddenResponseDtoCode
-    BadRequestResponseDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/BadRequestResponseDtoObject'
-        code:
-          $ref: '#/components/schemas/BadRequestResponseDtoCode'
-        message:
-          type: string
-      required:
-      - object
-      - code
-      - message
-      title: BadRequestResponseDto
-    BadRequestResponseDtoCode:
-      type: string
-      enum:
-      - bad_request
-      title: BadRequestResponseDtoCode
+      title: UpdateSiteLocaleV2ResponseBodyDtoObject
     RestoreSiteLocaleV2ResponseBodyDto:
       type: object
       properties:
@@ -602,11 +651,16 @@ components:
       - pathPrefix
       - isDefault
       title: RestoreSiteLocaleV2ResponseBodyDto
-    CreateSiteLocaleV2ResponseBodyDtoObject:
+    RestoreSiteLocaleV2ResponseBodyDtoObject:
       type: string
       enum:
       - locale
-      title: CreateSiteLocaleV2ResponseBodyDtoObject
+      title: RestoreSiteLocaleV2ResponseBodyDtoObject
+    ConflictResponseDtoCode:
+      type: string
+      enum:
+      - conflict
+      title: ConflictResponseDtoCode
     NotFoundResponseDto:
       type: object
       properties:
@@ -621,23 +675,11 @@ components:
       - code
       - message
       title: NotFoundResponseDto
-    ListSiteLocaleV2ResponseBodyDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/ListSiteLocaleV2ResponseBodyDtoObject'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListSiteLocaleV2ResponseBodyDtoDataItems'
-        hasMore:
-          type: boolean
-          description: The flag that indicates whether there are more locales available.
-      required:
-      - object
-      - data
-      - hasMore
-      title: ListSiteLocaleV2ResponseBodyDto
+    NotFoundResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: NotFoundResponseDtoObject
     CreateSiteLocaleV2RequestBodyDto:
       type: object
       properties:
@@ -656,48 +698,6 @@ components:
       - siteId
       - locale
       title: CreateSiteLocaleV2RequestBodyDto
-    NotFoundResponseDtoCode:
-      type: string
-      enum:
-      - not_found
-      title: NotFoundResponseDtoCode
-    UpdateSiteLocaleV2RequestBodyDto:
-      type: object
-      properties:
-        locale:
-          type: string
-          description: Locale of the site locale.
-        domain:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: The domain URL for domain-based localization. This URL must include the protocol.
-      title: UpdateSiteLocaleV2RequestBodyDto
-    ForbiddenResponseDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
-        code:
-          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
-        message:
-          type: string
-      required:
-      - object
-      - code
-      - message
-      title: ForbiddenResponseDto
-    UpdateSiteLocaleV2ResponseBodyDtoObject:
-      type: string
-      enum:
-      - locale
-      title: UpdateSiteLocaleV2ResponseBodyDtoObject
-    ReadSiteLocaleV2ResponseBodyDtoObject:
-      type: string
-      enum:
-      - locale
-      title: ReadSiteLocaleV2ResponseBodyDtoObject
   securitySchemes:
     Authentication:
       type: apiKey

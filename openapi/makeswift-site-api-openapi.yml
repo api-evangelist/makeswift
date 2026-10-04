@@ -277,178 +277,12 @@ paths:
               $ref: '#/components/schemas/DuplicateSiteV2RequestBodyDto'
 components:
   schemas:
-    UpdateSiteV2ResponseBodyDtoLocaleManagementMode:
-      type: string
-      enum:
-      - internal
-      - external
-      description: Controls whether locales are managed internally via the builder or externally via API.
-      title: UpdateSiteV2ResponseBodyDtoLocaleManagementMode
-    ForbiddenResponseDtoObject:
-      type: string
-      enum:
-      - error
-      title: ForbiddenResponseDtoObject
-    ListSiteV2ResponseBodyDtoDataItemsLocaleManagementMode:
-      type: string
-      enum:
-      - internal
-      - external
-      description: Controls whether locales are managed internally via the builder or externally via API.
-      title: ListSiteV2ResponseBodyDtoDataItemsLocaleManagementMode
-    ListSiteV2ResponseBodyDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoObject'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoDataItems'
-        hasMore:
-          type: boolean
-          description: The flag that indicates whether there are more sites available.
-      required:
-      - object
-      - data
-      - hasMore
-      title: ListSiteV2ResponseBodyDto
-    DuplicateSiteV2RequestBodyDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name for the duplicated site.
-      required:
-      - name
-      title: DuplicateSiteV2RequestBodyDto
-    ReadSiteV2ResponseBodyDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/ReadSiteV2ResponseBodyDtoObject'
-          description: The type of the object
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          description: The site name.
-        hostOrigin:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
-        publicApiKey:
-          type: string
-          format: uuid
-          description: The publishable API key that a host can use to get page and component data for rendering your site.
-        defaultLocale:
-          type: string
-          description: The primary locale of this site.
-        defaultLocalePathPrefix:
-          type:
-          - string
-          - 'null'
-        localeManagementMode:
-          $ref: '#/components/schemas/ReadSiteV2ResponseBodyDtoLocaleManagementMode'
-          description: Controls whether locales are managed internally via the builder or externally via API.
-      required:
-      - object
-      - id
-      - name
-      - hostOrigin
-      - publicApiKey
-      - defaultLocale
-      - localeManagementMode
-      title: ReadSiteV2ResponseBodyDto
-    CreateSiteV2RequestBodyDto:
-      type: object
-      properties:
-        workspaceId:
-          type: string
-          format: uuid
-          description: The ID of the workspace that contains this site.
-        name:
-          type: string
-          description: The site name.
-        hostOrigin:
-          type: string
-          format: uri
-          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
-        defaultLocale:
-          type: string
-          default: en-US
-          description: The primary locale of this site.
-      required:
-      - workspaceId
-      - name
-      title: CreateSiteV2RequestBodyDto
-    BadRequestResponseDtoObject:
-      type: string
-      enum:
-      - error
-      title: BadRequestResponseDtoObject
-    CreateSiteV2ResponseBodyDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/CreateSiteV2ResponseBodyDtoObject'
-          description: The type of the object
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          description: The site name.
-        hostOrigin:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
-        publicApiKey:
-          type: string
-          format: uuid
-          description: The publishable API key that a host can use to get page and component data for rendering your site.
-        defaultLocale:
-          type: string
-          description: The primary locale of this site.
-        defaultLocalePathPrefix:
-          type:
-          - string
-          - 'null'
-        localeManagementMode:
-          $ref: '#/components/schemas/CreateSiteV2ResponseBodyDtoLocaleManagementMode'
-          description: Controls whether locales are managed internally via the builder or externally via API.
-      required:
-      - object
-      - id
-      - name
-      - hostOrigin
-      - publicApiKey
-      - defaultLocale
-      - localeManagementMode
-      title: CreateSiteV2ResponseBodyDto
-    ReadSiteV2ResponseBodyDtoLocaleManagementMode:
-      type: string
-      enum:
-      - internal
-      - external
-      description: Controls whether locales are managed internally via the builder or externally via API.
-      title: ReadSiteV2ResponseBodyDtoLocaleManagementMode
-    ForbiddenResponseDtoCode:
-      type: string
-      enum:
-      - forbidden
-      title: ForbiddenResponseDtoCode
-    ListSiteV2ResponseBodyDtoDataItemsObject:
+    DuplicateSiteV2ResponseBodyDtoObject:
       type: string
       enum:
       - site
       description: The type of the object
-      title: ListSiteV2ResponseBodyDtoDataItemsObject
+      title: DuplicateSiteV2ResponseBodyDtoObject
     DuplicateSiteV2ResponseBodyDto:
       type: object
       properties:
@@ -491,6 +325,73 @@ components:
       - localeManagementMode
       description: The newly created duplicated site with all content and configuration copied from the original
       title: DuplicateSiteV2ResponseBodyDto
+    ListSiteV2ResponseBodyDtoDataItemsLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: ListSiteV2ResponseBodyDtoDataItemsLocaleManagementMode
+    UpdateSiteV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - site
+      description: The type of the object
+      title: UpdateSiteV2ResponseBodyDtoObject
+    CreateSiteV2RequestBodyDto:
+      type: object
+      properties:
+        workspaceId:
+          type: string
+          format: uuid
+          description: The ID of the workspace that contains this site.
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type: string
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        defaultLocale:
+          type: string
+          default: en-US
+          description: The primary locale of this site.
+      required:
+      - workspaceId
+      - name
+      title: CreateSiteV2RequestBodyDto
+    ForbiddenResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: ForbiddenResponseDtoObject
+    ReadSiteV2ResponseBodyDtoObject:
+      type: string
+      enum:
+      - site
+      description: The type of the object
+      title: ReadSiteV2ResponseBodyDtoObject
+    BadRequestResponseDtoCode:
+      type: string
+      enum:
+      - bad_request
+      title: BadRequestResponseDtoCode
+    DuplicateSiteV2ResponseBodyDtoLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: DuplicateSiteV2ResponseBodyDtoLocaleManagementMode
+    DuplicateSiteV2RequestBodyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name for the duplicated site.
+      required:
+      - name
+      title: DuplicateSiteV2RequestBodyDto
     BadRequestResponseDto:
       type: object
       properties:
@@ -505,31 +406,52 @@ components:
       - code
       - message
       title: BadRequestResponseDto
-    UpdateSiteV2RequestBodyDto:
+    CreateSiteV2ResponseBodyDto:
       type: object
       properties:
+        object:
+          $ref: '#/components/schemas/CreateSiteV2ResponseBodyDtoObject'
+          description: The type of the object
+        id:
+          type: string
+          format: uuid
         name:
           type: string
           description: The site name.
         hostOrigin:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
           description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        publicApiKey:
+          type: string
+          format: uuid
+          description: The publishable API key that a host can use to get page and component data for rendering your site.
         defaultLocale:
           type: string
           description: The primary locale of this site.
-      title: UpdateSiteV2RequestBodyDto
-    BadRequestResponseDtoCode:
+        defaultLocalePathPrefix:
+          type:
+          - string
+          - 'null'
+        localeManagementMode:
+          $ref: '#/components/schemas/CreateSiteV2ResponseBodyDtoLocaleManagementMode'
+          description: Controls whether locales are managed internally via the builder or externally via API.
+      required:
+      - object
+      - id
+      - name
+      - hostOrigin
+      - publicApiKey
+      - defaultLocale
+      - localeManagementMode
+      title: CreateSiteV2ResponseBodyDto
+    ForbiddenResponseDtoCode:
       type: string
       enum:
-      - bad_request
-      title: BadRequestResponseDtoCode
-    DuplicateSiteV2ResponseBodyDtoObject:
-      type: string
-      enum:
-      - site
-      description: The type of the object
-      title: DuplicateSiteV2ResponseBodyDtoObject
+      - forbidden
+      title: ForbiddenResponseDtoCode
     UpdateSiteV2ResponseBodyDto:
       type: object
       properties:
@@ -571,44 +493,34 @@ components:
       - defaultLocale
       - localeManagementMode
       title: UpdateSiteV2ResponseBodyDto
-    ReadSiteV2ResponseBodyDtoObject:
-      type: string
-      enum:
-      - site
-      description: The type of the object
-      title: ReadSiteV2ResponseBodyDtoObject
     ListSiteV2ResponseBodyDtoObject:
       type: string
       enum:
       - list
       title: ListSiteV2ResponseBodyDtoObject
-    UpdateSiteV2ResponseBodyDtoObject:
+    ListSiteV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoObject'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListSiteV2ResponseBodyDtoDataItems'
+        hasMore:
+          type: boolean
+          description: The flag that indicates whether there are more sites available.
+      required:
+      - object
+      - data
+      - hasMore
+      title: ListSiteV2ResponseBodyDto
+    CreateSiteV2ResponseBodyDtoObject:
       type: string
       enum:
       - site
       description: The type of the object
-      title: UpdateSiteV2ResponseBodyDtoObject
-    ForbiddenResponseDto:
-      type: object
-      properties:
-        object:
-          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
-        code:
-          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
-        message:
-          type: string
-      required:
-      - object
-      - code
-      - message
-      title: ForbiddenResponseDto
-    DuplicateSiteV2ResponseBodyDtoLocaleManagementMode:
-      type: string
-      enum:
-      - internal
-      - external
-      description: Controls whether locales are managed internally via the builder or externally via API.
-      title: DuplicateSiteV2ResponseBodyDtoLocaleManagementMode
+      title: CreateSiteV2ResponseBodyDtoObject
     ListSiteV2ResponseBodyDtoDataItems:
       type: object
       properties:
@@ -650,6 +562,46 @@ components:
       - defaultLocale
       - localeManagementMode
       title: ListSiteV2ResponseBodyDtoDataItems
+    BadRequestResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: BadRequestResponseDtoObject
+    ForbiddenResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ForbiddenResponseDto
+    UpdateSiteV2RequestBodyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type: string
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+      title: UpdateSiteV2RequestBodyDto
+    UpdateSiteV2ResponseBodyDtoLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: UpdateSiteV2ResponseBodyDtoLocaleManagementMode
     CreateSiteV2ResponseBodyDtoLocaleManagementMode:
       type: string
       enum:
@@ -657,12 +609,60 @@ components:
       - external
       description: Controls whether locales are managed internally via the builder or externally via API.
       title: CreateSiteV2ResponseBodyDtoLocaleManagementMode
-    CreateSiteV2ResponseBodyDtoObject:
+    ListSiteV2ResponseBodyDtoDataItemsObject:
       type: string
       enum:
       - site
       description: The type of the object
-      title: CreateSiteV2ResponseBodyDtoObject
+      title: ListSiteV2ResponseBodyDtoDataItemsObject
+    ReadSiteV2ResponseBodyDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ReadSiteV2ResponseBodyDtoObject'
+          description: The type of the object
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: The site name.
+        hostOrigin:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The public URL where your site is hosted. This is the URL that Makeswift uses to render your site for editing.
+        publicApiKey:
+          type: string
+          format: uuid
+          description: The publishable API key that a host can use to get page and component data for rendering your site.
+        defaultLocale:
+          type: string
+          description: The primary locale of this site.
+        defaultLocalePathPrefix:
+          type:
+          - string
+          - 'null'
+        localeManagementMode:
+          $ref: '#/components/schemas/ReadSiteV2ResponseBodyDtoLocaleManagementMode'
+          description: Controls whether locales are managed internally via the builder or externally via API.
+      required:
+      - object
+      - id
+      - name
+      - hostOrigin
+      - publicApiKey
+      - defaultLocale
+      - localeManagementMode
+      title: ReadSiteV2ResponseBodyDto
+    ReadSiteV2ResponseBodyDtoLocaleManagementMode:
+      type: string
+      enum:
+      - internal
+      - external
+      description: Controls whether locales are managed internally via the builder or externally via API.
+      title: ReadSiteV2ResponseBodyDtoLocaleManagementMode
   securitySchemes:
     Authentication:
       type: apiKey
