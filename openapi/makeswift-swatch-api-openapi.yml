@@ -1,0 +1,515 @@
+openapi: 3.2.0
+info:
+  title: REST Swatch API
+  version: 1.0.0
+servers:
+- url: https://api.makeswift.com
+  description: Production server
+tags:
+- name: swatch
+paths:
+  /v4/swatches:
+    post:
+      operationId: swatch_SwatchResourceApiController_createSwatch_v4
+      summary: Create Swatch
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Creates a site owned swatch.'
+      tags:
+      - swatch
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwatchV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSwatchV4BodyDto'
+      security:
+      - Authentication: []
+    get:
+      operationId: swatch_SwatchResourceApiController_listSwatches_v4
+      summary: List Swatches
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Lists site owned swatches by siteId.'
+      tags:
+      - swatch
+      parameters:
+      - name: siteId
+        in: query
+        description: The site ID to list swatches from.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: limit
+        in: query
+        description: The maximum number of swatches to return.
+        required: false
+        schema:
+          type: number
+          format: double
+          minimum: 1
+          maximum: 100
+          default: 20
+      - name: startingAfter
+        in: query
+        description: The pagination cursor. This is used to indicate what ID to list from.
+        required: false
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSwatchesV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+  /v4/swatches/{id}:
+    get:
+      operationId: swatch_SwatchResourceApiController_getSwatchById_v4
+      summary: Get Swatch
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Gets a site owned swatch by swatchId.'
+      tags:
+      - swatch
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the swatch.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwatchV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+    patch:
+      operationId: swatch_SwatchResourceApiController_updateSwatch_v4
+      summary: Update Swatch
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Updates a site-owned swatch color and name by swatchId. All fields are optional, thus omitted fields keep their current values.'
+      tags:
+      - swatch
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the swatch.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwatchV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSwatchV4BodyDto'
+      security:
+      - Authentication: []
+    delete:
+      operationId: swatch_SwatchResourceApiController_deleteSwatch_v4
+      summary: Delete Swatch
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Deletes a site owned swatch by swatchId.'
+      tags:
+      - swatch
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the swatch.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+components:
+  schemas:
+    SwatchV4ResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        referenceId:
+          type: string
+          description: The id to use wherever a color prop references this swatch (e.g. the "swatchId" inside backgrounds/border/boxShadow/text-color payloads) - NOT the plain "id" field above which is used in other api calls like update_swatch.
+        name:
+          type:
+          - string
+          - 'null'
+        hue:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+        saturation:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+        lightness:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+        siteId:
+          type: string
+          format: uuid
+        pageId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+          description: Always `null` here. Page-owned swatches are not available through this API.
+      required:
+      - id
+      - referenceId
+      - name
+      - hue
+      - saturation
+      - lightness
+      - siteId
+      - pageId
+      title: SwatchV4ResponseDto
+    ForbiddenResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ForbiddenResponseDto
+    ListSwatchesV4ResponseDtoObject:
+      type: string
+      enum:
+      - list
+      title: ListSwatchesV4ResponseDtoObject
+    NotFoundResponseDtoCode:
+      type: string
+      enum:
+      - not_found
+      title: NotFoundResponseDtoCode
+    UpdateSwatchV4BodyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: The name of the swatch. This field is optional, and omitting it leaves the current name unchanged. Null or empty strings are not permitted. Swatch groups are sorted based on name prefix, thus changing from 'White' to 'Neutrals / White' will move the swatch into the site's corresponding swatch group
+        hue:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          description: Hue value between [0, 360]. This field is optional, and omitting it leaves the current value unchanged. Null is not permitted.
+        saturation:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+          description: Saturation value between [0, 100]. This field is optional, and omitting it leaves the current value unchanged. Null is not permitted.
+        lightness:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+          description: Lightness value between [0, 100]. This field is optional, and omitting it leaves the current value unchanged. Null is not permitted.
+      title: UpdateSwatchV4BodyDto
+    ListSwatchesV4ResponseDtoDataItems:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        referenceId:
+          type: string
+          description: The id to use wherever a color prop references this swatch (e.g. the "swatchId" inside backgrounds/border/boxShadow/text-color payloads) - NOT the plain "id" field above which is used in other api calls like update_swatch.
+        name:
+          type:
+          - string
+          - 'null'
+        hue:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+        saturation:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+        lightness:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+        siteId:
+          type: string
+          format: uuid
+        pageId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+          description: Always `null` here. Page-owned swatches are not available through this API.
+      required:
+      - id
+      - referenceId
+      - name
+      - hue
+      - saturation
+      - lightness
+      - siteId
+      - pageId
+      title: ListSwatchesV4ResponseDtoDataItems
+    NotFoundResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/NotFoundResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/NotFoundResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: NotFoundResponseDto
+    ForbiddenResponseDtoCode:
+      type: string
+      enum:
+      - forbidden
+      title: ForbiddenResponseDtoCode
+    CreateSwatchV4BodyDto:
+      type: object
+      properties:
+        siteId:
+          type: string
+          format: uuid
+          description: The site ID to create the swatch on.
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name of the swatch.
+        hue:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          description: Hue value between [0, 360].
+        saturation:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+          description: Saturation value between [0, 100].
+        lightness:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 100
+          description: Lightness value between [0, 100].
+      required:
+      - siteId
+      - hue
+      - saturation
+      - lightness
+      title: CreateSwatchV4BodyDto
+    ListSwatchesV4ResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListSwatchesV4ResponseDtoObject'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListSwatchesV4ResponseDtoDataItems'
+          description: The site owned swatches on the site.
+        hasMore:
+          type: boolean
+          description: The flag that indicates whether there are more swatches available.
+      required:
+      - object
+      - data
+      - hasMore
+      title: ListSwatchesV4ResponseDto
+    BadRequestResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/BadRequestResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/BadRequestResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: BadRequestResponseDto
+    NotFoundResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: NotFoundResponseDtoObject
+    BadRequestResponseDtoCode:
+      type: string
+      enum:
+      - bad_request
+      title: BadRequestResponseDtoCode
+    BadRequestResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: BadRequestResponseDtoObject
+    ForbiddenResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: ForbiddenResponseDtoObject
+  securitySchemes:
+    Authentication:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'API key authentication. Accepts either:
+
+        - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+        - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'

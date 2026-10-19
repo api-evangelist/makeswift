@@ -148,6 +148,36 @@ apis:
     url: https://docs.makeswift.com/developer
   - type: APIReference
     url: https://docs.makeswift.com/developer/api-reference/overview
+- aid: makeswift:makeswift-region-api
+  name: Makeswift Region API
+  description: The region API from Makeswift — 3 operation(s) for region.
+  humanURL: https://docs.makeswift.com/developer/api-reference/overview
+  baseURL: https://api.makeswift.com
+  tags:
+  - region
+  properties:
+  - type: OpenAPI
+    url: openapi/makeswift-region-api-openapi.yml
+- aid: makeswift:makeswift-swatch-api
+  name: Makeswift Swatch API
+  description: The swatch API from Makeswift — 2 operation(s) for swatch.
+  humanURL: https://docs.makeswift.com/developer/api-reference/overview
+  baseURL: https://api.makeswift.com
+  tags:
+  - swatch
+  properties:
+  - type: OpenAPI
+    url: openapi/makeswift-swatch-api-openapi.yml
+- aid: makeswift:makeswift-typography-api
+  name: Makeswift Typography API
+  description: The typography API from Makeswift — 2 operation(s) for typography.
+  humanURL: https://docs.makeswift.com/developer/api-reference/overview
+  baseURL: https://api.makeswift.com
+  tags:
+  - typography
+  properties:
+  - type: OpenAPI
+    url: openapi/makeswift-typography-api-openapi.yml
 common:
 - type: Overlay
   url: overlays/makeswift-openapi-overlay.yaml

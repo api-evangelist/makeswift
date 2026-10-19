@@ -1,0 +1,931 @@
+openapi: 3.2.0
+info:
+  title: REST Region API
+  version: 1.0.0
+servers:
+- url: https://api.makeswift.com
+  description: Production server
+tags:
+- name: Region
+paths:
+  /v1/regions:
+    post:
+      operationId: region_RegionResourceApiController_createRegion_v1
+      summary: Create Region
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Creates a region in one locale. The element tree''s root component `type` becomes the region''s `type`. A region in a site locale requires the region to exist in the default locale first.'
+      tags:
+      - Region
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionV1ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRegionV1BodyDto'
+      security:
+      - Authentication: []
+    get:
+      operationId: region_RegionResourceApiController_listRegions_v1
+      summary: List Regions
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Lists a site''s regions for one locale. Element trees are included only with `include=elements`.'
+      tags:
+      - Region
+      parameters:
+      - name: siteId
+        in: query
+        description: The site ID to list regions from.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: limit
+        in: query
+        description: The maximum number of regions to return.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+      - name: startingAfter
+        in: query
+        description: The pagination cursor. This is used to indicate what ID to list from.
+        required: false
+        schema:
+          type: string
+      - name: locale
+        in: query
+        description: The locale to list regions for. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. Defaults to the site's default locale.
+        required: false
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'Include additional data in the response. Omit for the region records alone.
+
+
+          Supported values:
+
+          - `elements` - include each region''s element tree.'
+        required: false
+        schema:
+          $ref: '#/components/schemas/V1RegionsGetParametersInclude'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRegionsV1ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+  /v1/regions/batch:
+    post:
+      operationId: region_RegionResourceApiController_createRegionsBatch_v1
+      summary: Create Regions
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Creates up to 1000 regions, each like Create Region. Each region is created on its own: the response has one result per region, in request order, and a region that fails does not stop the others.
+
+
+        Regions in the default locale are created before regions in site locales, so a region in a site locale may come before its default locale''s region in the batch.'
+      tags:
+      - Region
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRegionsBatchV1BodyDto'
+      security:
+      - Authentication: []
+  /v1/regions/{id}:
+    get:
+      operationId: region_RegionResourceApiController_getRegion_v1
+      summary: Get Region
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Gets one region in one locale. The element tree is included only with `include=elements`.'
+      tags:
+      - Region
+      parameters:
+      - name: id
+        in: path
+        description: The region ID. URL-encode it if it contains reserved characters such as `/`.
+        required: true
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        description: The site ID the region belongs to.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: locale
+        in: query
+        description: The locale to get the region in. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. Defaults to the site's default locale.
+        required: false
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'Include additional data in the response. Omit for the region records alone.
+
+
+          Supported values:
+
+          - `elements` - include the region''s element tree.'
+        required: false
+        schema:
+          $ref: '#/components/schemas/V1RegionsIdGetParametersInclude'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRegionV1ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+    patch:
+      operationId: region_RegionResourceApiController_updateRegion_v1
+      summary: Update Region
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Replaces a region''s element tree in one locale. The element tree''s root component `type` becomes the region''s `type`. Updating the default locale also updates the localized regions that inherit from it. Pass `version` to update the region only if it has not changed since you read it.'
+      tags:
+      - Region
+      parameters:
+      - name: id
+        in: path
+        description: The region ID. URL-encode it if it contains reserved characters such as `/`.
+        required: true
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        description: The site ID the region belongs to.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: locale
+        in: query
+        description: The locale to update the region in. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. Defaults to the site's default locale.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionV1ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRegionV1BodyDto'
+      security:
+      - Authentication: []
+    delete:
+      operationId: region_RegionResourceApiController_deleteRegion_v1
+      summary: Delete Region
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Deletes a region in one locale. Only the draft changes: the live site changes when you publish.'
+      tags:
+      - Region
+      parameters:
+      - name: id
+        in: path
+        description: The region ID. URL-encode it if it contains reserved characters such as `/`.
+        required: true
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        description: The site ID the region belongs to.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: locale
+        in: query
+        description: The locale to delete the region in. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. Defaults to the site's default locale.
+        required: false
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictResponseDto'
+      security:
+      - Authentication: []
+components:
+  schemas:
+    V1RegionsIdGetParametersInclude:
+      type: string
+      enum:
+      - elements
+      title: V1RegionsIdGetParametersInclude
+    ConflictResponseDtoCode:
+      type: string
+      enum:
+      - conflict
+      title: ConflictResponseDtoCode
+    NotFoundResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/NotFoundResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/NotFoundResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: NotFoundResponseDto
+    UpdateRegionV1BodyDtoElements:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The component type, e.g. './components/Box/index.js'.
+        key:
+          type: string
+          format: uuid
+          description: A UUID, unique within this tree.
+        props:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Control-defined values, keyed by prop name. Nested elements appear here too, as a { elements, columns } value that may sit under any prop name and at any depth - there is no reserved prop name for children.
+      required:
+      - type
+      - key
+      - props
+      description: The root of the region's element tree. Replaces the tree in full. Its component type becomes the region's `type`.
+      title: UpdateRegionV1BodyDtoElements
+    RegionV1ResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/RegionV1ResponseDtoObject'
+        id:
+          type: string
+          description: The region ID. Assigned by the host, not generated by Makeswift.
+        name:
+          type: string
+          description: The region name.
+        type:
+          type: string
+          description: The component type at the root of the region's element tree.
+        locale:
+          type: string
+          description: The locale of this region.
+        updatedAt:
+          type: string
+          format: date-time
+          description: The region last update date and time.
+        version:
+          type: integer
+          minimum: 0
+          description: The version of the region's element tree. It increases with every change to the tree. Pass it to Update Region to update the region only if it has not changed since.
+        elements:
+          description: Always `null` here. Get Region returns the region's element tree with `include=elements`.
+      required:
+      - object
+      - id
+      - name
+      - type
+      - locale
+      - updatedAt
+      - version
+      - elements
+      title: RegionV1ResponseDto
+    CreateRegionV1BodyDto:
+      type: object
+      properties:
+        siteId:
+          type: string
+          format: uuid
+          description: The site ID to create the region in.
+        id:
+          type: string
+          minLength: 1
+          description: The region ID, assigned by the host. Unique within a site and locale.
+        name:
+          type: string
+          minLength: 1
+          description: The region name.
+        locale:
+          type: string
+          description: The locale to create the region in. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. Defaults to the site's default locale.
+        elements:
+          $ref: '#/components/schemas/CreateRegionV1BodyDtoElements'
+          description: The root of the region's element tree. Its component type becomes the region's `type`.
+      required:
+      - siteId
+      - id
+      - name
+      - elements
+      title: CreateRegionV1BodyDto
+    ForbiddenResponseDtoCode:
+      type: string
+      enum:
+      - forbidden
+      title: ForbiddenResponseDtoCode
+    CreateRegionsBatchV1ResponseDtoItemsOneOf0Data:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDtoItemsOneOf0DataObject'
+        id:
+          type: string
+          description: The region ID. Assigned by the host, not generated by Makeswift.
+        name:
+          type: string
+          description: The region name.
+        type:
+          type: string
+          description: The component type at the root of the region's element tree.
+        locale:
+          type: string
+          description: The locale of this region.
+        updatedAt:
+          type: string
+          format: date-time
+          description: The region last update date and time.
+        version:
+          type: integer
+          minimum: 0
+          description: The version of the region's element tree. It increases with every change to the tree. Pass it to Update Region to update the region only if it has not changed since.
+        elements:
+          description: Always `null` here. Get Region returns the region's element tree with `include=elements`.
+      required:
+      - object
+      - id
+      - name
+      - type
+      - locale
+      - updatedAt
+      - version
+      - elements
+      title: CreateRegionsBatchV1ResponseDtoItemsOneOf0Data
+    CreateRegionsBatchV1ResponseDtoItemsOneOf1Error:
+      type: object
+      properties:
+        code:
+          $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDtoItemsOneOf1ErrorCode'
+          description: '`BASE_REGION_MISSING`: a region in a site locale whose region in the default locale does not exist. `REGION_EXISTS`: the region already exists in that locale. `INVALID_ELEMENT_TREE`: the element tree is invalid. `INVALID_LOCALE`: the site does not have the locale. `DUPLICATE_IN_BATCH`: an earlier region in the batch has the same `id` and locale. `INTERNAL_ERROR`: an unexpected error; the only one worth retrying.'
+        message:
+          type: string
+      required:
+      - code
+      - message
+      title: CreateRegionsBatchV1ResponseDtoItemsOneOf1Error
+    BadRequestResponseDtoCode:
+      type: string
+      enum:
+      - bad_request
+      title: BadRequestResponseDtoCode
+    ConflictResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ConflictResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ConflictResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ConflictResponseDto
+    CreateRegionsBatchV1ResponseDtoItems0:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDtoItemsOneOf0Data'
+      required:
+      - success
+      - data
+      title: CreateRegionsBatchV1ResponseDtoItems0
+    NotFoundResponseDtoCode:
+      type: string
+      enum:
+      - not_found
+      title: NotFoundResponseDtoCode
+    CreateRegionsBatchV1ResponseDtoItemsOneOf0DataObject:
+      type: string
+      enum:
+      - region
+      title: CreateRegionsBatchV1ResponseDtoItemsOneOf0DataObject
+    CreateRegionsBatchV1ResponseDtoItems:
+      oneOf:
+      - $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDtoItems0'
+      - $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDtoItems1'
+      title: CreateRegionsBatchV1ResponseDtoItems
+    CreateRegionsBatchV1ResponseDtoItems1:
+      type: object
+      properties:
+        success:
+          type: boolean
+        error:
+          $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDtoItemsOneOf1Error'
+      required:
+      - success
+      - error
+      title: CreateRegionsBatchV1ResponseDtoItems1
+    CreateRegionsBatchV1BodyDtoRegionsItemsElements:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The component type, e.g. './components/Box/index.js'.
+        key:
+          type: string
+          format: uuid
+          description: A UUID, unique within this tree.
+        props:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Control-defined values, keyed by prop name. Nested elements appear here too, as a { elements, columns } value that may sit under any prop name and at any depth - there is no reserved prop name for children.
+      required:
+      - type
+      - key
+      - props
+      description: The root of the region's element tree. Its component type becomes the region's `type`.
+      title: CreateRegionsBatchV1BodyDtoRegionsItemsElements
+    ListRegionsV1ResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListRegionsV1ResponseDtoObject'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListRegionsV1ResponseDtoDataItems'
+          description: The regions on the site in the requested locale.
+        hasMore:
+          type: boolean
+          description: The flag that indicates whether there are more regions available.
+      required:
+      - object
+      - data
+      - hasMore
+      title: ListRegionsV1ResponseDto
+    GetRegionV1ResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/GetRegionV1ResponseDtoObject'
+        id:
+          type: string
+          description: The region ID. Assigned by the host, not generated by Makeswift.
+        name:
+          type: string
+          description: The region name.
+        type:
+          type: string
+          description: The component type at the root of the region's element tree.
+        locale:
+          type: string
+          description: The locale of this region.
+        updatedAt:
+          type: string
+          format: date-time
+          description: The region last update date and time.
+        version:
+          type: integer
+          minimum: 0
+          description: The version of the region's element tree. It increases with every change to the tree. Pass it to Update Region to update the region only if it has not changed since.
+        elements:
+          oneOf:
+          - $ref: '#/components/schemas/GetRegionV1ResponseDtoElements'
+          - type: 'null'
+          description: The root of the region's element tree. `null` unless `include=elements`.
+      required:
+      - object
+      - id
+      - name
+      - type
+      - locale
+      - updatedAt
+      - version
+      - elements
+      title: GetRegionV1ResponseDto
+    ListRegionsV1ResponseDtoDataItems:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListRegionsV1ResponseDtoDataItemsObject'
+        id:
+          type: string
+          description: The region ID. Assigned by the host, not generated by Makeswift.
+        name:
+          type: string
+          description: The region name.
+        type:
+          type: string
+          description: The component type at the root of the region's element tree.
+        locale:
+          type: string
+          description: The locale of this region.
+        updatedAt:
+          type: string
+          format: date-time
+          description: The region last update date and time.
+        version:
+          type: integer
+          minimum: 0
+          description: The version of the region's element tree. It increases with every change to the tree. Pass it to Update Region to update the region only if it has not changed since.
+        elements:
+          oneOf:
+          - $ref: '#/components/schemas/ListRegionsV1ResponseDtoDataItemsElements'
+          - type: 'null'
+          description: The root of the region's element tree. `null` unless `include=elements`.
+      required:
+      - object
+      - id
+      - name
+      - type
+      - locale
+      - updatedAt
+      - version
+      - elements
+      title: ListRegionsV1ResponseDtoDataItems
+    UpdateRegionV1BodyDto:
+      type: object
+      properties:
+        elements:
+          $ref: '#/components/schemas/UpdateRegionV1BodyDtoElements'
+          description: The root of the region's element tree. Replaces the tree in full. Its component type becomes the region's `type`.
+        version:
+          type: integer
+          minimum: 0
+          description: The region `version` the update is based on, as returned by an earlier request. If the region has changed since, the update fails with `409` and changes nothing. Omit it to update the region regardless.
+      required:
+      - elements
+      title: UpdateRegionV1BodyDto
+    BadRequestResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: BadRequestResponseDtoObject
+    ForbiddenResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: ForbiddenResponseDtoObject
+    ForbiddenResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ForbiddenResponseDto
+    CreateRegionV1BodyDtoElements:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The component type, e.g. './components/Box/index.js'.
+        key:
+          type: string
+          format: uuid
+          description: A UUID, unique within this tree.
+        props:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Control-defined values, keyed by prop name. Nested elements appear here too, as a { elements, columns } value that may sit under any prop name and at any depth - there is no reserved prop name for children.
+      required:
+      - type
+      - key
+      - props
+      description: The root of the region's element tree. Its component type becomes the region's `type`.
+      title: CreateRegionV1BodyDtoElements
+    ListRegionsV1ResponseDtoDataItemsElements:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The component type, e.g. './components/Box/index.js'.
+        key:
+          type: string
+          format: uuid
+          description: A UUID, unique within this tree.
+        props:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Control-defined values, keyed by prop name. Nested elements appear here too, as a { elements, columns } value that may sit under any prop name and at any depth - there is no reserved prop name for children.
+      required:
+      - type
+      - key
+      - props
+      description: The root of the region's element tree. `null` unless `include=elements`.
+      title: ListRegionsV1ResponseDtoDataItemsElements
+    ListRegionsV1ResponseDtoDataItemsObject:
+      type: string
+      enum:
+      - region
+      title: ListRegionsV1ResponseDtoDataItemsObject
+    GetRegionV1ResponseDtoObject:
+      type: string
+      enum:
+      - region
+      title: GetRegionV1ResponseDtoObject
+    CreateRegionsBatchV1BodyDtoRegionsItems:
+      type: object
+      properties:
+        id:
+          type: string
+          minLength: 1
+          description: The region ID, assigned by the host. Unique within a site and locale.
+        name:
+          type: string
+          minLength: 1
+          description: The region name.
+        locale:
+          type: string
+          description: The locale to create the region in. Accepts either a locale code (e.g. `en-US`) or a `site_locale` UUID. Defaults to the site's default locale.
+        elements:
+          $ref: '#/components/schemas/CreateRegionsBatchV1BodyDtoRegionsItemsElements'
+          description: The root of the region's element tree. Its component type becomes the region's `type`.
+      required:
+      - id
+      - name
+      - elements
+      title: CreateRegionsBatchV1BodyDtoRegionsItems
+    ListRegionsV1ResponseDtoObject:
+      type: string
+      enum:
+      - list
+      title: ListRegionsV1ResponseDtoObject
+    NotFoundResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: NotFoundResponseDtoObject
+    ConflictResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: ConflictResponseDtoObject
+    GetRegionV1ResponseDtoElements:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The component type, e.g. './components/Box/index.js'.
+        key:
+          type: string
+          format: uuid
+          description: A UUID, unique within this tree.
+        props:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Control-defined values, keyed by prop name. Nested elements appear here too, as a { elements, columns } value that may sit under any prop name and at any depth - there is no reserved prop name for children.
+      required:
+      - type
+      - key
+      - props
+      description: The root of the region's element tree. `null` unless `include=elements`.
+      title: GetRegionV1ResponseDtoElements
+    RegionV1ResponseDtoObject:
+      type: string
+      enum:
+      - region
+      title: RegionV1ResponseDtoObject
+    CreateRegionsBatchV1ResponseDto:
+      type: array
+      items:
+        $ref: '#/components/schemas/CreateRegionsBatchV1ResponseDtoItems'
+      description: 'One result per region, in request order: the created region or its error.'
+      title: CreateRegionsBatchV1ResponseDto
+    CreateRegionsBatchV1ResponseDtoItemsOneOf1ErrorCode:
+      type: string
+      enum:
+      - BASE_REGION_MISSING
+      - REGION_EXISTS
+      - INVALID_ELEMENT_TREE
+      - INVALID_LOCALE
+      - DUPLICATE_IN_BATCH
+      - INTERNAL_ERROR
+      description: '`BASE_REGION_MISSING`: a region in a site locale whose region in the default locale does not exist. `REGION_EXISTS`: the region already exists in that locale. `INVALID_ELEMENT_TREE`: the element tree is invalid. `INVALID_LOCALE`: the site does not have the locale. `DUPLICATE_IN_BATCH`: an earlier region in the batch has the same `id` and locale. `INTERNAL_ERROR`: an unexpected error; the only one worth retrying.'
+      title: CreateRegionsBatchV1ResponseDtoItemsOneOf1ErrorCode
+    CreateRegionsBatchV1BodyDto:
+      type: object
+      properties:
+        siteId:
+          type: string
+          format: uuid
+          description: The site ID to create the regions in.
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateRegionsBatchV1BodyDtoRegionsItems'
+          description: The regions to create, each like the body of Create Region.
+      required:
+      - siteId
+      - regions
+      title: CreateRegionsBatchV1BodyDto
+    V1RegionsGetParametersInclude:
+      type: string
+      enum:
+      - elements
+      title: V1RegionsGetParametersInclude
+    BadRequestResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/BadRequestResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/BadRequestResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: BadRequestResponseDto
+  securitySchemes:
+    Authentication:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'API key authentication. Accepts either:
+
+        - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+        - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'

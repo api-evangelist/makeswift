@@ -1,0 +1,795 @@
+openapi: 3.2.0
+info:
+  title: REST Typography API
+  version: 1.0.0
+servers:
+- url: https://api.makeswift.com
+  description: Production server
+tags:
+- name: typography
+paths:
+  /v4/typographies:
+    post:
+      operationId: typography_TypographyResourceApiController_createTypography_v4
+      summary: Create Typography
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Creates a site owned typography.'
+      tags:
+      - typography
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypographyV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTypographyV4BodyDto'
+      security:
+      - Authentication: []
+    get:
+      operationId: typography_TypographyResourceApiController_listTypographies_v4
+      summary: List Typographies
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Lists site owned typographies by siteId.'
+      tags:
+      - typography
+      parameters:
+      - name: siteId
+        in: query
+        description: The site ID to list typographies from.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: limit
+        in: query
+        description: The maximum number of typographies to return, between [1, 100].
+        required: false
+        schema:
+          type: number
+          format: double
+          minimum: 1
+          maximum: 100
+          default: 20
+      - name: startingAfter
+        in: query
+        description: The pagination cursor. This is used to indicate what ID to list from.
+        required: false
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTypographiesV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+  /v4/typographies/{id}:
+    get:
+      operationId: typography_TypographyResourceApiController_getTypographyById_v4
+      summary: Get Typography
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Gets a site owned typography by typographyId.'
+      tags:
+      - typography
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the typography.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypographyV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+    patch:
+      operationId: typography_TypographyResourceApiController_updateTypography_v4
+      summary: Update Typography
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Updates a site owned typography by typographyId. All fields are optional; omitted fields keep their current values. "style" replaces the full per-device style array when provided.'
+      tags:
+      - typography
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the typography.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypographyV4ResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTypographyV4BodyDto'
+      security:
+      - Authentication: []
+    delete:
+      operationId: typography_TypographyResourceApiController_deleteTypography_v4
+      summary: Delete Typography
+      description: 'This feature is in beta and may change. Requests return `403` until the feature flag is enabled for your site or workspace.
+
+
+        Deletes a site owned typography by typographyId. The delete is unconditional: text elements that still reference the typography are not checked.'
+      tags:
+      - typography
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the typography.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponseDto'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponseDto'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponseDto'
+      security:
+      - Authentication: []
+components:
+  schemas:
+    CreateTypographyV4BodyDto:
+      type: object
+      properties:
+        siteId:
+          type: string
+          format: uuid
+          description: The site ID to create the typography on.
+        name:
+          type: string
+          minLength: 1
+          description: The name of the typography.
+        style:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateTypographyV4BodyDtoStyleItems'
+          description: Per-device style overrides. A "color" references an existing swatch by its "id" or "referenceId" in "swatchId" (create one with the Swatch API first); omit or null it for no swatch. "alpha" (0-1) sets opacity.
+      required:
+      - siteId
+      - name
+      - style
+      title: CreateTypographyV4BodyDto
+    NotFoundResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/NotFoundResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/NotFoundResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: NotFoundResponseDto
+    ListTypographiesV4ResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ListTypographiesV4ResponseDtoObject'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListTypographiesV4ResponseDtoDataItems'
+          description: The typographies on the site, ordered by position.
+        hasMore:
+          type: boolean
+          description: Flag indicating whether there are more typographies to return.
+      required:
+      - object
+      - data
+      - hasMore
+      title: ListTypographiesV4ResponseDto
+    TypographyV4ResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        referenceId:
+          type: string
+          description: The id to use wherever a text element references this typography (e.g. the "id" field of a Text element's "typography" prop in a page's element data) - NOT the plain "id" field above, which is used as the typography identifier in other REST typography API calls.
+        name:
+          type: string
+        style:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypographyV4ResponseDtoStyleItems'
+        siteId:
+          type: string
+          format: uuid
+      required:
+      - id
+      - referenceId
+      - name
+      - style
+      - siteId
+      title: TypographyV4ResponseDto
+    ForbiddenResponseDtoCode:
+      type: string
+      enum:
+      - forbidden
+      title: ForbiddenResponseDtoCode
+    CreateTypographyV4BodyDtoStyleItemsValue:
+      type: object
+      properties:
+        color:
+          oneOf:
+          - $ref: '#/components/schemas/CreateTypographyV4BodyDtoStyleItemsValueColor'
+          - type: 'null'
+        fontFamily:
+          type:
+          - string
+          - 'null'
+        fontSize:
+          oneOf:
+          - $ref: '#/components/schemas/CreateTypographyV4BodyDtoStyleItemsValueFontSize'
+          - type: 'null'
+        fontWeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        italic:
+          type:
+          - boolean
+          - 'null'
+        letterSpacing:
+          type:
+          - number
+          - 'null'
+          format: double
+        lineHeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        strikethrough:
+          type:
+          - boolean
+          - 'null'
+        textAlign:
+          type:
+          - string
+          - 'null'
+        underline:
+          type:
+          - boolean
+          - 'null'
+        uppercase:
+          type:
+          - boolean
+          - 'null'
+      title: CreateTypographyV4BodyDtoStyleItemsValue
+    NotFoundResponseDtoCode:
+      type: string
+      enum:
+      - not_found
+      title: NotFoundResponseDtoCode
+    ListTypographiesV4ResponseDtoDataItems:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        referenceId:
+          type: string
+          description: The id to use wherever a text element references this typography (e.g. the "id" field of a Text element's "typography" prop in a page's element data) - NOT the plain "id" field above, which is used as the typography identifier in other REST typography API calls.
+        name:
+          type: string
+        style:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListTypographiesV4ResponseDtoDataItemsStyleItems'
+        siteId:
+          type: string
+          format: uuid
+      required:
+      - id
+      - referenceId
+      - name
+      - style
+      - siteId
+      title: ListTypographiesV4ResponseDtoDataItems
+    BadRequestResponseDtoCode:
+      type: string
+      enum:
+      - bad_request
+      title: BadRequestResponseDtoCode
+    CreateTypographyV4BodyDtoStyleItemsValueColor:
+      type: object
+      properties:
+        swatchId:
+          type:
+          - string
+          - 'null'
+          description: The "id" or "referenceId" of an existing swatch (create one with the Swatch API first). Omit or null it for no swatch.
+        alpha:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Opacity between 0 and 1.
+      title: CreateTypographyV4BodyDtoStyleItemsValueColor
+    ListTypographiesV4ResponseDtoDataItemsStyleItemsValue:
+      type: object
+      properties:
+        color:
+          oneOf:
+          - $ref: '#/components/schemas/ListTypographiesV4ResponseDtoDataItemsStyleItemsValueColor'
+          - type: 'null'
+        fontFamily:
+          type:
+          - string
+          - 'null'
+        fontSize:
+          oneOf:
+          - $ref: '#/components/schemas/ListTypographiesV4ResponseDtoDataItemsStyleItemsValueFontSize'
+          - type: 'null'
+        fontWeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        italic:
+          type:
+          - boolean
+          - 'null'
+        letterSpacing:
+          type:
+          - number
+          - 'null'
+          format: double
+        lineHeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        strikethrough:
+          type:
+          - boolean
+          - 'null'
+        textAlign:
+          type:
+          - string
+          - 'null'
+        underline:
+          type:
+          - boolean
+          - 'null'
+        uppercase:
+          type:
+          - boolean
+          - 'null'
+      title: ListTypographiesV4ResponseDtoDataItemsStyleItemsValue
+    TypographyV4ResponseDtoStyleItems:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        value:
+          $ref: '#/components/schemas/TypographyV4ResponseDtoStyleItemsValue'
+      required:
+      - deviceId
+      - value
+      title: TypographyV4ResponseDtoStyleItems
+    ListTypographiesV4ResponseDtoDataItemsStyleItemsValueFontSize:
+      oneOf:
+      - type: boolean
+      - type: number
+        format: double
+      - type: string
+      - description: Any type
+      title: ListTypographiesV4ResponseDtoDataItemsStyleItemsValueFontSize
+    CreateTypographyV4BodyDtoStyleItems:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        value:
+          $ref: '#/components/schemas/CreateTypographyV4BodyDtoStyleItemsValue'
+      required:
+      - deviceId
+      - value
+      title: CreateTypographyV4BodyDtoStyleItems
+    UpdateTypographyV4BodyDtoStyleItems:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        value:
+          $ref: '#/components/schemas/UpdateTypographyV4BodyDtoStyleItemsValue'
+      required:
+      - deviceId
+      - value
+      title: UpdateTypographyV4BodyDtoStyleItems
+    BadRequestResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: BadRequestResponseDtoObject
+    TypographyV4ResponseDtoStyleItemsValueColor:
+      type: object
+      properties:
+        swatchId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        alpha:
+          type:
+          - number
+          - 'null'
+          format: double
+      required:
+      - swatchId
+      title: TypographyV4ResponseDtoStyleItemsValueColor
+    ForbiddenResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: ForbiddenResponseDtoObject
+    UpdateTypographyV4BodyDtoStyleItemsValue:
+      type: object
+      properties:
+        color:
+          oneOf:
+          - $ref: '#/components/schemas/UpdateTypographyV4BodyDtoStyleItemsValueColor'
+          - type: 'null'
+        fontFamily:
+          type:
+          - string
+          - 'null'
+        fontSize:
+          oneOf:
+          - $ref: '#/components/schemas/UpdateTypographyV4BodyDtoStyleItemsValueFontSize'
+          - type: 'null'
+        fontWeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        italic:
+          type:
+          - boolean
+          - 'null'
+        letterSpacing:
+          type:
+          - number
+          - 'null'
+          format: double
+        lineHeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        strikethrough:
+          type:
+          - boolean
+          - 'null'
+        textAlign:
+          type:
+          - string
+          - 'null'
+        underline:
+          type:
+          - boolean
+          - 'null'
+        uppercase:
+          type:
+          - boolean
+          - 'null'
+      title: UpdateTypographyV4BodyDtoStyleItemsValue
+    UpdateTypographyV4BodyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: The name of the typography. A "/" in the name nests it in a group (e.g. "Headings / H1"); renaming across groups moves it.
+        style:
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateTypographyV4BodyDtoStyleItems'
+          description: Per-device style overrides. Replaces the full style array when provided; per-device entries are not merged. A "color" references an existing swatch by its "id" or "referenceId" in "swatchId"; omit or null it for no swatch. "alpha" (0-1) sets opacity.
+      title: UpdateTypographyV4BodyDto
+    ForbiddenResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/ForbiddenResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/ForbiddenResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: ForbiddenResponseDto
+    UpdateTypographyV4BodyDtoStyleItemsValueFontSize:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        unit:
+          type:
+          - string
+          - 'null'
+      title: UpdateTypographyV4BodyDtoStyleItemsValueFontSize
+    TypographyV4ResponseDtoStyleItemsValue:
+      type: object
+      properties:
+        color:
+          oneOf:
+          - $ref: '#/components/schemas/TypographyV4ResponseDtoStyleItemsValueColor'
+          - type: 'null'
+        fontFamily:
+          type:
+          - string
+          - 'null'
+        fontSize:
+          oneOf:
+          - $ref: '#/components/schemas/TypographyV4ResponseDtoStyleItemsValueFontSize'
+          - type: 'null'
+        fontWeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        italic:
+          type:
+          - boolean
+          - 'null'
+        letterSpacing:
+          type:
+          - number
+          - 'null'
+          format: double
+        lineHeight:
+          type:
+          - number
+          - 'null'
+          format: double
+        strikethrough:
+          type:
+          - boolean
+          - 'null'
+        textAlign:
+          type:
+          - string
+          - 'null'
+        underline:
+          type:
+          - boolean
+          - 'null'
+        uppercase:
+          type:
+          - boolean
+          - 'null'
+      title: TypographyV4ResponseDtoStyleItemsValue
+    NotFoundResponseDtoObject:
+      type: string
+      enum:
+      - error
+      title: NotFoundResponseDtoObject
+    UpdateTypographyV4BodyDtoStyleItemsValueColor:
+      type: object
+      properties:
+        swatchId:
+          type:
+          - string
+          - 'null'
+          description: The "id" or "referenceId" of an existing swatch (create one with the Swatch API first). Omit or null it for no swatch.
+        alpha:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Opacity between 0 and 1.
+      title: UpdateTypographyV4BodyDtoStyleItemsValueColor
+    ListTypographiesV4ResponseDtoObject:
+      type: string
+      enum:
+      - list
+      title: ListTypographiesV4ResponseDtoObject
+    CreateTypographyV4BodyDtoStyleItemsValueFontSize:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        unit:
+          type:
+          - string
+          - 'null'
+      title: CreateTypographyV4BodyDtoStyleItemsValueFontSize
+    TypographyV4ResponseDtoStyleItemsValueFontSize:
+      oneOf:
+      - type: boolean
+      - type: number
+        format: double
+      - type: string
+      - description: Any type
+      title: TypographyV4ResponseDtoStyleItemsValueFontSize
+    ListTypographiesV4ResponseDtoDataItemsStyleItems:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        value:
+          $ref: '#/components/schemas/ListTypographiesV4ResponseDtoDataItemsStyleItemsValue'
+      required:
+      - deviceId
+      - value
+      title: ListTypographiesV4ResponseDtoDataItemsStyleItems
+    BadRequestResponseDto:
+      type: object
+      properties:
+        object:
+          $ref: '#/components/schemas/BadRequestResponseDtoObject'
+        code:
+          $ref: '#/components/schemas/BadRequestResponseDtoCode'
+        message:
+          type: string
+      required:
+      - object
+      - code
+      - message
+      title: BadRequestResponseDto
+    ListTypographiesV4ResponseDtoDataItemsStyleItemsValueColor:
+      type: object
+      properties:
+        swatchId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        alpha:
+          type:
+          - number
+          - 'null'
+          format: double
+      required:
+      - swatchId
+      title: ListTypographiesV4ResponseDtoDataItemsStyleItemsValueColor
+  securitySchemes:
+    Authentication:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'API key authentication. Accepts either:
+
+        - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
+
+        - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
