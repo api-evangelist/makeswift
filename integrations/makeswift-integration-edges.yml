@@ -94,6 +94,24 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
+- partner_name: Vercel (own)
+  partner: vercel
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://vercel.com/marketplace/makeswift
+  mirror_of: vercel/integrations/vercel-integration-edges.yml
+  apps:
+  - Makeswift
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: CMS
+  partner_tier: third-party
 method: searched
 checked:
 - https://api.nuget.org/v3
@@ -109,5 +127,6 @@ checked:
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
+- vercel/integrations/vercel-integration-edges.yml
 source:
 - https://zapier.com/api/v4/apps/
