@@ -661,3 +661,9 @@ components:
         - App API key (e.g. sk_eczMHVBY9fV6GYFhvs53qcnxq7yptlXL3ABKOZtn6dQ)
 
         - Site API key (UUID format, e.g. 550e8400-e29b-41d4-a716-446655440000)'
+x-provenance:
+  method: harvested
+  publisher: Makeswift
+  source: https://docs.makeswift.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
