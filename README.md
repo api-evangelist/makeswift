@@ -64,6 +64,117 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Makeswift is a company surfaced as a portfolio company of techstars and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Makeswift is a composable visual page builder for marketing teams and developers, built for Next.js. It lets marketers visually design, edit, and publish modern web frontends while developers register their own React components and keep full control over hosting and code. Makeswift ships an official React runtime SDK (@makeswift/runtime), a CLI, and a REST API at api.makeswift.com for programmatically managing sites, pages, and locales, plus a hosted documentation MCP server for AI clients. Makeswift is backed by Techstars and partners closely with BigCommerce for composable commerce.
 
-Backed by: techstars — https://makeswift.com/
+**Areas:** Company · Visual Page Builder · Website Builder · Next.js · Headless CMS · Composable · Content Management · Web Development · Developer Tools
+
+## Makeswift on APIs.io
+
+Everything profiled for Makeswift is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/makeswift/](https://apis.io/providers/makeswift/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Makeswift Locale API](https://apis.io/apis/makeswift/makeswift-locale-api/) — The locale API from Makeswift — 3 operation(s) for locale.
+- [Makeswift Page API](https://apis.io/apis/makeswift/makeswift-page-api/) — The page API from Makeswift — 2 operation(s) for page.
+- [Makeswift Site API](https://apis.io/apis/makeswift/makeswift-site-api/) — The site API from Makeswift — 3 operation(s) for site.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [makeswift-mcp.yml](https://apis.io/servers/makeswift/makeswift-mcp-yml/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [REST locale API](https://apis.io/collections/makeswift/open-makeswift-locale-api/)
+- [REST locale page API](https://apis.io/collections/makeswift/open-makeswift-page-api/)
+- [REST locale site API](https://apis.io/collections/makeswift/open-makeswift-site-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Makeswift Openapi Overlay](https://apis.io/overlays/makeswift/makeswift-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Makeswift Authentication](https://apis.io/security/makeswift/makeswift-authentication/)
+- [Makeswift Domain Security](https://apis.io/security/makeswift/makeswift-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://makeswift.com/)
+- [Documentation](https://docs.makeswift.com/)
+- [Getting started](https://docs.makeswift.com/developer/docs/get-started/quickstart)
+- [API reference](https://docs.makeswift.com/developer/api-reference/overview)
+- [Pricing](https://makeswift.com/pricing)
+- [Sign up](https://app.makeswift.com/signup)
+- [Changelog](https://docs.makeswift.com/developer/changelog)
+- [Blog](https://makeswift.com/blog)
+- [GitHub](https://github.com/makeswift)
+- [Status](https://status.makeswift.com/)
+
+## API Evangelist rating
+
+**Kin Score 43.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.7 |
+| Contract quality | 54.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 68.5 |
+| Access clarity | 23.7 |
+
+**Agent readiness 34.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/makeswift/](https://apis.io/providers/makeswift/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Makeswift: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/makeswift/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
